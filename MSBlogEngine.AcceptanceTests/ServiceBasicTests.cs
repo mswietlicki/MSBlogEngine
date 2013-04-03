@@ -14,7 +14,7 @@ namespace MSBlogEngine.AcceptanceTests
         [Fact]
         public void IsServiceAccesible()
         {
-            using (var web = new HttpClient())
+            using (var web = new HttpClient() { BaseAddress = new Uri("http://localhost:8023")})
             {
                 var response = web.GetAsync("").Result;
 
