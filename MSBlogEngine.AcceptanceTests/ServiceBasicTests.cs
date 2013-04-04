@@ -29,6 +29,22 @@ namespace MSBlogEngine.AcceptanceTests
         }
 
         [Fact]
+        public void GetBlogPostsCollection()
+        {
+            using (var web = new HttpClientFactory().Create())
+            {
+                var response = web.GetAsync("Blog").Result;
+
+                Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
+
+                var result = response.Content.ReadAsStringAsync()
+                            .ContinueWith(t => JsonConvert.DeserializeObject<IEnumerable<BlogPost>>(t.Result)).Result;
+
+                Assert.NotNull(result);
+            }
+        }
+
+        [Fact]
         public void PutBlogPostToService()
         {
             var blogPost = new BlogPost
@@ -47,7 +63,7 @@ namespace MSBlogEngine.AcceptanceTests
                 response = web.GetAsync("Blog/1").Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
-         
+
                 var result = response.Content.ReadAsStringAsync().Result;
                 var expected = JsonConvert.SerializeObject(blogPost);
 
