@@ -18,18 +18,15 @@ namespace MSBlogEngine.AcceptanceTests
             var baseAddress = new Uri("http://localhost:8023");
 
             var configuration = new HttpSelfHostConfiguration(baseAddress);
+            
             var server = new HttpSelfHostServer(configuration);
             
-            server.OpenAsync();
-
-            using (var web = new HttpClient() { BaseAddress = baseAddress })
+            using (var web = new HttpClient(server) { BaseAddress = baseAddress })
             {
                 var response = web.GetAsync("").Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
             }
-
-            server.CloseAsync();
         }
     }
 }
