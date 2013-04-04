@@ -20,7 +20,7 @@ namespace MSBlogEngine.AcceptanceTests
             var baseAddress = new Uri("http://localhost:8023");
 
             var configuration = new HttpSelfHostConfiguration(baseAddress);
-            new Bootstraper().Configure(configuration);
+            new Bootstrapper().Configure(configuration);
             var server = new HttpSelfHostServer(configuration);
             
             using (var web = new HttpClient(server) { BaseAddress = baseAddress })
