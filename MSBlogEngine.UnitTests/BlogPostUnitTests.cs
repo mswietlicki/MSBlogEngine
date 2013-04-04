@@ -20,6 +20,15 @@ namespace MSBlogEngine.UnitTests
             Assert.Equal(a, b);
         }
 
+        [Fact]
+        public void TwoSamePostsEqualHash()
+        {
+            var a = new BlogPost { Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1) };
+            var b = new BlogPost { Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1) };
+
+            Assert.Equal(a.GetHashCode(), b.GetHashCode());
+        }
+
 
         public static IEnumerable<object[]> ExampleNotSamePostData
         {
@@ -39,6 +48,13 @@ namespace MSBlogEngine.UnitTests
         public void TwoNotSamePostsNotEqual(BlogPost a, BlogPost b)
         {
             Assert.NotEqual(a, b);
+        }
+
+        [Theory]
+        [PropertyData("ExampleNotSamePostData")]
+        public void TwoNotSamePostsNotSameHash(BlogPost a, BlogPost b)
+        {
+            Assert.NotEqual(a.GetHashCode(), b.GetHashCode());
         }
 
     }
