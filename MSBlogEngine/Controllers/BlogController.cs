@@ -29,10 +29,10 @@ namespace MSBlogEngine.Controllers
             return BlogPosts.FirstOrDefault();
         }
 
-        public HttpResponseMessage Put(BlogPost post)
+        public int Put(BlogPost post)
         {
             BlogPosts.Add(post);
-            return Request.CreateResponse(HttpStatusCode.OK, "");
+            return BlogPosts.Count - 1;
         }
     }
 }
