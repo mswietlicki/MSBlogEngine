@@ -56,18 +56,28 @@ namespace MSBlogEngine.AcceptanceTests
 
             using (var web = new HttpClientFactory().Create())
             {
-                var response = web.PutAsJsonAsync("", blogPost).Result;
+                {
+                    var response = web.PutAsJsonAsync("", blogPost).Result;
 
-                Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
+                    Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
+                }
+                {
+                    var response = web.GetAsync("Blog/1").Result;
 
-                response = web.GetAsync("Blog/1").Result;
+                    Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
-                Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
+                    var result = response.Content.ReadAsStringAsync().Result;
+                    var expected = JsonConvert.SerializeObject(blogPost);
 
-                var result = response.Content.ReadAsStringAsync().Result;
-                var expected = JsonConvert.SerializeObject(blogPost);
+                    Assert.True(result.Equals(expected), "Result equal: " + result);
+                }
+                {
+                    var response = web.GetAsync("Blog").Result;
+                    var result = response.Content.ReadAsStringAsync()
+                             .ContinueWith(t => JsonConvert.DeserializeObject<IEnumerable<BlogPost>>(t.Result)).Result;
 
-                Assert.True(result.Equals(expected), "Result equal: " + result);
+                    Assert.Contains(blogPost, result);
+                }
             }
         }
 
