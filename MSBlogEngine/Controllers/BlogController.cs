@@ -19,14 +19,14 @@ namespace MSBlogEngine.Controllers
             BlogPosts = new List<BlogPost>();
         }
 
-        public HttpResponseMessage Get()
+        public List<BlogPost> Get()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, BlogPosts);
+            return BlogPosts;
         }
 
-        public HttpResponseMessage Get(int id)
+        public BlogPost Get(int id)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, BlogPosts.FirstOrDefault());
+            return BlogPosts.FirstOrDefault();
         }
 
         public HttpResponseMessage Put(BlogPost post)
