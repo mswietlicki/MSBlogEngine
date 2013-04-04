@@ -37,8 +37,7 @@ namespace MSBlogEngine.AcceptanceTests
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
-                var result = response.Content.ReadAsStringAsync()
-                            .ContinueWith(t => JsonConvert.DeserializeObject<IEnumerable<BlogPost>>(t.Result)).Result;
+                var result = response.Content.GetAndDeserializeJsonResult<IEnumerable<BlogPost>>();
 
                 Assert.NotNull(result);
             }
@@ -66,15 +65,13 @@ namespace MSBlogEngine.AcceptanceTests
 
                     Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
-                    var result = response.Content.ReadAsStringAsync().Result;
-                    var expected = JsonConvert.SerializeObject(blogPost);
+                    var result = response.Content.GetAndDeserializeJsonResult<BlogPost>();
 
-                    Assert.True(result.Equals(expected), "Result equal: " + result);
+                    Assert.Equal(blogPost, result);
                 }
                 {
                     var response = web.GetAsync("Blog").Result;
-                    var result = response.Content.ReadAsStringAsync()
-                             .ContinueWith(t => JsonConvert.DeserializeObject<IEnumerable<BlogPost>>(t.Result)).Result;
+                    var result = response.Content.GetAndDeserializeJsonResult<IEnumerable<BlogPost>>();
 
                     Assert.Contains(blogPost, result);
                 }
