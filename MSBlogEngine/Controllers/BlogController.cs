@@ -12,21 +12,26 @@ namespace MSBlogEngine.Controllers
 {
     public class BlogController : ApiController
     {
-        private static BlogPost _blogPost;
+        private static readonly List<BlogPost> BlogPosts;
+
+        static BlogController()
+        {
+            BlogPosts = new List<BlogPost>();
+        }
 
         public HttpResponseMessage Get()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new List<BlogPost>() { _blogPost });
+            return Request.CreateResponse(HttpStatusCode.OK, BlogPosts);
         }
 
         public HttpResponseMessage Get(int id)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, _blogPost);
+            return Request.CreateResponse(HttpStatusCode.OK, BlogPosts.FirstOrDefault());
         }
 
         public HttpResponseMessage Put(BlogPost post)
         {
-            _blogPost = post;
+            BlogPosts.Add(post);
             return Request.CreateResponse(HttpStatusCode.OK, "");
         }
     }
