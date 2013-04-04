@@ -57,8 +57,10 @@ namespace MSBlogEngine.AcceptanceTests
             {
                 {
                     var response = web.PutAsJsonAsync("", blogPost).Result;
-
                     Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
+
+                    var result = response.Content.GetAndDeserializeJsonResult<int>();
+                    Assert.True(result == 0, "Result id is: " + result);
                 }
                 {
                     var response = web.GetAsync("Blog/1").Result;
