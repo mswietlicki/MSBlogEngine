@@ -44,7 +44,7 @@ namespace MSBlogEngine.AcceptanceTests
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
-                response = web.GetAsync("").Result;
+                response = web.GetAsync("Blog/1").Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
          
