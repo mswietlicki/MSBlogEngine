@@ -16,7 +16,7 @@ namespace MSBlogEngine.Controllers
 
         public HttpResponseMessage Get()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new List<BlogPost>());
+            return Request.CreateResponse(HttpStatusCode.OK, new List<BlogPost>() { _blogPost });
         }
 
         public HttpResponseMessage Get(int id)
