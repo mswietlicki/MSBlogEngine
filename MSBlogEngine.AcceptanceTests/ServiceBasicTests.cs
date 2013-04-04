@@ -20,37 +20,26 @@ namespace MSBlogEngine.AcceptanceTests
         [Fact]
         public void IsServiceAccesible()
         {
-            var baseAddress = new Uri("http://localhost:8023");
-
-            var configuration = new HttpSelfHostConfiguration(baseAddress);
-            new Bootstrapper().Configure(configuration);
-            var server = new HttpSelfHostServer(configuration);
-
-            using (var web = new HttpClient(server) { BaseAddress = baseAddress })
+            using (var web = new HttpClientFactory().Create())
             {
                 var response = web.GetAsync("").Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
             }
         }
+
         [Fact]
         public void PutBlogPostToService()
         {
-            var baseAddress = new Uri("http://localhost:8023");
-
-            var configuration = new HttpSelfHostConfiguration(baseAddress);
-            new Bootstrapper().Configure(configuration);
-            var server = new HttpSelfHostServer(configuration);
-
-            using (var web = new HttpClient(server) { BaseAddress = baseAddress })
+            var blogPost = new BlogPost
             {
-                var blogPost = new BlogPost
-                    {
-                        Title = "Test",
-                        CreateDate = new DateTime(2013, 4, 4, 15, 30, 30),
-                        Body = "Test body"
-                    };
+                Title = "Test",
+                CreateDate = new DateTime(2013, 4, 4, 15, 30, 30),
+                Body = "Test body"
+            };
 
+            using (var web = new HttpClientFactory().Create())
+            {
                 var response = web.PutAsJsonAsync("", blogPost).Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
@@ -58,6 +47,7 @@ namespace MSBlogEngine.AcceptanceTests
                 response = web.GetAsync("").Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
+         
                 var result = response.Content.ReadAsStringAsync().Result;
                 var expected = JsonConvert.SerializeObject(blogPost);
 
