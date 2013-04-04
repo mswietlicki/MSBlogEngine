@@ -60,7 +60,15 @@
     <Compile Include="ServiceBasicTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSBlogEngine\MSBlogEngine.csproj">
+      <Project>{475064CF-A687-42A1-8572-FFE316706B64}</Project>
+      <Name>MSBlogEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
