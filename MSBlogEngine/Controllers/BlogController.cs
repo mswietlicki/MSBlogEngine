@@ -15,5 +15,10 @@ namespace MSBlogEngine.Controllers
         {
             return Request.CreateResponse(HttpStatusCode.OK, "");
         }
+
+        public HttpResponseMessage Put()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, "");
+        }
     }
 }
