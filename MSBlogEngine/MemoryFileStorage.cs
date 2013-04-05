@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace MSBlogEngine
 {
@@ -19,6 +21,11 @@ namespace MSBlogEngine
             var stream = new MemoryStream();
             _files.Add(path, stream);
             return stream;
+        }
+
+        public IEnumerable<string> GetFilesPaths(Func<string, bool> filter)
+        {
+            return _files.Keys.Where(filter);
         }
     }
 }

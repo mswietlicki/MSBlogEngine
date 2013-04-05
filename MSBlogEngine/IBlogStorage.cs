@@ -10,5 +10,6 @@ namespace MSBlogEngine
     {
         BlogPost GetPost(int id);
         int AddPost(BlogPost post);
+        IEnumerable<BlogPost> GetPosts();
     }
 }

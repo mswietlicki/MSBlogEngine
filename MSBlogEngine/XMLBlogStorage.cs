@@ -18,9 +18,14 @@ namespace MSBlogEngine
 
         public BlogPost GetPost(int id)
         {
-            var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id));
+            return GetPost(string.Format("Posts\\{0}.xml", id));
+        }
+
+        private BlogPost GetPost(string path)
+        {
+            var stream = _fileStorage.GetFileStream(path);
             {
-                return new XmlSerializer(typeof(BlogPost)).Deserialize(stream) as BlogPost;
+                return new XmlSerializer(typeof (BlogPost)).Deserialize(stream) as BlogPost;
             }
         }
 
@@ -32,6 +37,11 @@ namespace MSBlogEngine
                 new XmlSerializer(typeof (BlogPost)).Serialize(stream, post);
                 return id;
             }
+        }
+
+        public IEnumerable<BlogPost> GetPosts()
+        {
+            return _fileStorage.GetFilesPaths(f => f.StartsWith("Posts")).Select(f => GetPost(f));
         }
     }
 }

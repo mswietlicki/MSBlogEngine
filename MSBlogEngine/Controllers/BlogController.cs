@@ -12,16 +12,9 @@ namespace MSBlogEngine.Controllers
 {
     public class BlogController : ApiController
     {
-        private static readonly List<BlogPost> BlogPosts;
-
-        static BlogController()
-        {
-            BlogPosts = new List<BlogPost>();
-        }
-
         public List<BlogPost> Get()
         {
-            return BlogPosts;
+            return Global.Container.GetInstance<IBlogStorage>().GetPosts().ToList();
         }
 
         public BlogPost Get(int id)
