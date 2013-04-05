@@ -11,21 +11,28 @@ namespace MSBlogEngine.UnitTests
 {
     public class BlogPostUnitTests
     {
-        [Fact]
-        public void TwoSamePostsEqual()
+        public static IEnumerable<object[]> ExampleSamePostData
         {
-            var a = new BlogPost { Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1) };
-            var b = new BlogPost { Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1) };
+            get
+            {
+                return new[]
+                    {
+                        new object[] { new BlogPost {Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1)}, new BlogPost {Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1) }},
+                    };
+            }
+        }
 
+        [Theory]
+        [PropertyData("ExampleSamePostData")]
+        public void TwoSamePostsEqual(BlogPost a, BlogPost b)
+        {
             Assert.Equal(a, b);
         }
 
-        [Fact]
-        public void TwoSamePostsEqualHash()
+        [Theory]
+        [PropertyData("ExampleSamePostData")]
+        public void TwoSamePostsEqualHash(BlogPost a, BlogPost b)
         {
-            var a = new BlogPost { Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1) };
-            var b = new BlogPost { Title = "Test", Body = "tet", CreateDate = new DateTime(2011, 1, 1) };
-
             Assert.Equal(a.GetHashCode(), b.GetHashCode());
         }
 
