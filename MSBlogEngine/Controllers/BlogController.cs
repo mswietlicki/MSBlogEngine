@@ -12,19 +12,21 @@ namespace MSBlogEngine.Controllers
 {
     public class BlogController : ApiController
     {
+        private readonly IBlogStorage _getInstance = Global.Container.GetInstance<IBlogStorage>();
+
         public List<BlogPost> Get()
         {
-            return Global.Container.GetInstance<IBlogStorage>().GetPosts().ToList();
+            return _getInstance.GetPosts().ToList();
         }
 
         public BlogPost Get(int id)
         {
-            return Global.Container.GetInstance<IBlogStorage>().GetPost(id);
+            return _getInstance.GetPost(id);
         }
 
         public int Put(BlogPost post)
         {
-            return Global.Container.GetInstance<IBlogStorage>().AddPost(post); ;
+            return _getInstance.AddPost(post); ;
         }
     }
 }
