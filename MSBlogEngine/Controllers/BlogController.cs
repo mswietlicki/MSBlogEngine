@@ -31,8 +31,7 @@ namespace MSBlogEngine.Controllers
 
         public int Put(BlogPost post)
         {
-            BlogPosts.Add(post);
-            return BlogPosts.Count - 1;
+            return Global.Container.GetInstance<IBlogStorage>().AddPost(post); ;
         }
     }
 }

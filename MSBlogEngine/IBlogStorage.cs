@@ -9,5 +9,6 @@ namespace MSBlogEngine
     public interface IBlogStorage
     {
         BlogPost GetPost(int id);
+        int AddPost(BlogPost post);
     }
 }

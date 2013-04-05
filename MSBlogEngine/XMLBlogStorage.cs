@@ -18,9 +18,19 @@ namespace MSBlogEngine
 
         public BlogPost GetPost(int id)
         {
-            using (var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id)))
+            var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id));
             {
                 return new XmlSerializer(typeof(BlogPost)).Deserialize(stream) as BlogPost;
+            }
+        }
+
+        public int AddPost(BlogPost post)
+        {
+            var id = 0;
+            var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id));
+            {
+                new XmlSerializer(typeof (BlogPost)).Serialize(stream, post);
+                return id;
             }
         }
     }

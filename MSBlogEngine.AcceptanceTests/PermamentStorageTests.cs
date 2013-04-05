@@ -30,7 +30,6 @@ namespace MSBlogEngine.AcceptanceTests
             }
 
             Assert.Equal(Global.Container.GetInstance<IBlogStorage>().GetPost(id), blogPost);
-
         }
 
         private static BlogPost GetExampleBlogPost()
