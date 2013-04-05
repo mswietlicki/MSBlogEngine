@@ -26,7 +26,8 @@ namespace MSBlogEngine
             var container = new Container();
 
             container.RegisterSingle(() => this);
-            container.RegisterSingle<IFileStorage>(() => new MemmoryFileStorage());
+            container.RegisterSingle<IFileStorage>(() => new MemoryFileStorage());
+            container.Register<IBlogStorage>(() => new XMLBlogStorage());
 
             return container;
         }

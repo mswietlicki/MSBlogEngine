@@ -19,9 +19,6 @@ namespace MSBlogEngine.AcceptanceTests
         {
             var blogPost = GetExampleBlogPost();
 
-            var storage = new XMLBlogStorage();
-            Global.Container.Register<IBlogStorage>(() => storage);
-
             int id;
 
             using (var web = new HttpClientFactory().Create())
@@ -32,7 +29,7 @@ namespace MSBlogEngine.AcceptanceTests
                 id = response.Content.GetAndDeserializeJsonResult<int>();
             }
 
-            Assert.Equal(storage.GetPost(id), blogPost);
+            Assert.Equal(Global.Container.GetInstance<IBlogStorage>().GetPost(id), blogPost);
 
         }
 
