@@ -26,7 +26,7 @@ namespace MSBlogEngine.Controllers
 
         public BlogPost Get(int id)
         {
-            return BlogPosts.FirstOrDefault();
+            return Global.Container.GetInstance<IBlogStorage>().GetPost(id);
         }
 
         public int Put(BlogPost post)
