@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="HttpClientFactory.cs" />
     <Compile Include="HttpContentJsonExtensions.cs" />
+    <Compile Include="PermamentStorageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBasicTests.cs" />
   </ItemGroup>
