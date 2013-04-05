@@ -7,7 +7,7 @@ using SimpleInjector;
 
 namespace MSBlogEngine
 {
-    public class Bootstrapper: IContainerBuilder
+    public class Bootstrapper : IContainerBuilder
     {
         public void Configure(HttpConfiguration config)
         {
@@ -26,6 +26,7 @@ namespace MSBlogEngine
             var container = new Container();
 
             container.RegisterSingle(() => this);
+            container.RegisterSingle<IFileStorage>(() => new MemmoryFileStorage());
 
             return container;
         }

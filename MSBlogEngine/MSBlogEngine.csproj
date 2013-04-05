@@ -66,6 +66,8 @@
     <Compile Include="Container.cs" />
     <Compile Include="IBlogStorage.cs" />
     <Compile Include="IContainerBuilder.cs" />
+    <Compile Include="IFileStorage.cs" />
+    <Compile Include="MemmoryFileStorage.cs" />
     <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLBlogStorage.cs" />
