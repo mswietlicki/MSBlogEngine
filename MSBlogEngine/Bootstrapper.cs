@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Http;
+using SimpleInjector;
 
 namespace MSBlogEngine
 {
-    public class Bootstrapper
+    public class Bootstrapper: IContainerBuilder
     {
         public void Configure(HttpConfiguration config)
         {
@@ -18,6 +19,15 @@ namespace MSBlogEngine
                         controller = "Blog",
                         id = RouteParameter.Optional
                     });
+        }
+
+        public Container BuildContainer()
+        {
+            var container = new Container();
+
+            container.RegisterSingle(() => this);
+
+            return container;
         }
     }
 }
