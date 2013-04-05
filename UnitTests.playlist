@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="MSBlogEngine.UnitTests.BlogPostUnitTests.TwoNotSamePostsNotSameHash" /><Add Test="MSBlogEngine.UnitTests.BlogPostUnitTests.TwoNotSamePostsNotEqual" /><Add Test="MSBlogEngine.UnitTests.BlogPostUnitTests.TwoSamePostsEqualHash" /><Add Test="MSBlogEngine.UnitTests.BlogPostUnitTests.TwoSamePostsEqual" /></Playlist>

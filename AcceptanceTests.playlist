@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="MSBlogEngine.AcceptanceTests.ServiceBasicTests.GetBlogPostsCollection" /><Add Test="MSBlogEngine.AcceptanceTests.ServiceBasicTests.PutBlogPostToService" /><Add Test="MSBlogEngine.AcceptanceTests.ServiceBasicTests.IsServiceAccesible" /><Add Test="MSBlogEngine.AcceptanceTests.PermamentStorageTests.PutAndSaveBlogPost" /></Playlist>
