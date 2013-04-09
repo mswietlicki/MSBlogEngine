@@ -16,7 +16,7 @@ namespace MSBlogEngine.AcceptanceTests
             var baseAddress = new Uri("http://localhost:8023");
 
             var configuration = new HttpSelfHostConfiguration(baseAddress);
-            Global.Container.GetInstance<Bootstrapper>().Configure(configuration);
+            Global.Container.GetInstance<Bootstrapper>().Configure(configuration, Global.Container);
             var server = new HttpSelfHostServer(configuration);
 
             return new HttpClient(server) {BaseAddress = baseAddress};
