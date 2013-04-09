@@ -42,5 +42,10 @@ namespace MSBlogEngine.Storage
         {
             return _fileStorage.GetFilesPaths(f => f.StartsWith("Posts")).Select(f => GetPost(f));
         }
+
+        public void UpdatePost(int id, BlogPost post)
+        {
+            
+        }
     }
 }

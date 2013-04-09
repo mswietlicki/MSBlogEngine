@@ -34,5 +34,10 @@ namespace MSBlogEngine.Controllers
         {
             return _blogStorage.AddPost(post); ;
         }
+
+        public void Post(int id, BlogPost post)
+        {
+            _blogStorage.UpdatePost(id, post);
+        }
     }
 }

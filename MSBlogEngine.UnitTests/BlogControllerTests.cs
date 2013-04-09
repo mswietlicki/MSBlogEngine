@@ -49,5 +49,50 @@ namespace MSBlogEngine.UnitTests
             blogStorage.Verify(o => o.GetPost(0));
             Assert.Same(post, blogPost);
         }
+        
+        [Fact]
+        public void PutPost()
+        {
+            //SETUP
+            var blogPost = new BlogPost();
+
+            var container = new Container();
+            var blogStorage = new Mock<IBlogStorage>();
+            blogStorage.Setup(o => o.AddPost(blogPost)).Returns(0);
+            container.Register<IBlogStorage>(() => blogStorage.Object);
+
+            var controller = container.GetInstance<BlogController>();
+
+            //ACT
+            var post = controller.Put(blogPost);
+
+            //VERIFY
+            blogStorage.Verify(o => o.AddPost(blogPost), Times.Once());
+            Assert.Equal(post, 0);
+        }
+
+        [Fact]
+        public void PostPost()
+        {
+            //SETUP
+            var blogPost = new BlogPost();
+            var id = 0;
+
+            var container = new Container();
+            var blogStorage = new Mock<IBlogStorage>();
+            blogStorage.Setup(o => o.UpdatePost(id, blogPost));
+            container.Register<IBlogStorage>(() => blogStorage.Object);
+
+            var controller = container.GetInstance<BlogController>();
+
+            //ACT
+            controller.Post(id, blogPost);
+
+            //VERIFY
+            blogStorage.Verify(o => o.UpdatePost(id, blogPost), Times.Once());
+            
+        }
+
+
     }
 }

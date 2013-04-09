@@ -8,5 +8,6 @@ namespace MSBlogEngine.Storage
         BlogPost GetPost(int id);
         int AddPost(BlogPost post);
         IEnumerable<BlogPost> GetPosts();
+        void UpdatePost(int id, BlogPost post);
     }
 }
