@@ -53,7 +53,6 @@ namespace MSBlogEngine
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
 
         public object GetService(Type serviceType)
@@ -68,7 +67,7 @@ namespace MSBlogEngine
 
         public IDependencyScope BeginScope()
         {
-            throw new NotImplementedException();
+            return this;
         }
     }
 }
