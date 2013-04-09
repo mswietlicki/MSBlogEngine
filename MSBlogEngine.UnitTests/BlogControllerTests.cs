@@ -18,6 +18,7 @@ namespace MSBlogEngine.UnitTests
         public void GetPosts()
         {
             var container = new Container();
+            Global.Container = container;
             var blogStorage = new Mock<IBlogStorage>();
             container.Register<IBlogStorage>(() => blogStorage.Object);
 
