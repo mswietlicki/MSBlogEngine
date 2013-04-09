@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MSBlogEngine.Controllers;
+using MSBlogEngine.Models;
 using MSBlogEngine.Storage;
 using MSBlogEngine.Storage.FileStorage;
 using SimpleInjector;
@@ -25,7 +26,28 @@ namespace MSBlogEngine.UnitTests
             var posts = controller.Get();
 
             Assert.NotNull(posts);
-            blogStorage.Verify(o => o.GetPosts());
+            blogStorage.Verify(o => o.GetPosts(), Times.Once());
+        }
+
+        [Fact]
+        public void GetPost()
+        {
+            //SETUP
+            var blogPost = new BlogPost();
+
+            var container = new Container();
+            var blogStorage = new Mock<IBlogStorage>();
+            blogStorage.Setup(o => o.GetPost(0)).Returns(blogPost);
+            container.Register<IBlogStorage>(() => blogStorage.Object);
+
+            var controller = container.GetInstance<BlogController>();
+
+            //ACT
+            var post = controller.Get(0);
+
+            //VERIFY
+            blogStorage.Verify(o => o.GetPost(0));
+            Assert.Same(post, blogPost);
         }
     }
 }
