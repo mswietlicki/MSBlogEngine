@@ -13,7 +13,6 @@ namespace MSBlogEngine
         public static Container Container
         {
             get { return _container ?? (_container = new Bootstrapper().BuildContainer()); }
-            set { _container = value; }
         }
     }
 }
