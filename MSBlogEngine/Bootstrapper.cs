@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Web.Http;
-using System.Web.Http.Dependencies;
 using MSBlogEngine.Storage;
 using MSBlogEngine.Storage.FileStorage;
 using SimpleInjector;
+using SimpleInjector.Integration.Web.WebApi;
 
 namespace MSBlogEngine
 {
@@ -34,40 +32,6 @@ namespace MSBlogEngine
             container.Register<IBlogStorage>(() => new XMLBlogStorage());
 
             return container;
-        }
-    }
-
-    public class SimpleInjectorDependencyResolver : IDependencyResolver
-    {
-        public Container Container { get; private set; }
-
-        public SimpleInjectorDependencyResolver(Container container)
-        {
-            if (container == null)
-            {
-                throw new ArgumentNullException("container");
-            }
-
-            this.Container = container;
-        }
-
-        public void Dispose()
-        {
-        }
-
-        public object GetService(Type serviceType)
-        {
-            return ((IServiceProvider)this.Container).GetService(serviceType);
-        }
-
-        public IEnumerable<object> GetServices(Type serviceType)
-        {
-            return this.Container.GetAllInstances(serviceType);
-        }
-
-        public IDependencyScope BeginScope()
-        {
-            return this;
         }
     }
 }
