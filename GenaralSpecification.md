@@ -16,4 +16,5 @@ General high level MSBlogEngine sprecification.
 11.	RSS
 12. Post categories
 13.	Post tags
+14. Markdown as posts format
 
