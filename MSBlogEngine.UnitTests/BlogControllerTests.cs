@@ -18,11 +18,10 @@ namespace MSBlogEngine.UnitTests
         public void GetPosts()
         {
             var container = new Container();
-            Global.Container = container;
             var blogStorage = new Mock<IBlogStorage>();
             container.Register<IBlogStorage>(() => blogStorage.Object);
 
-            var controller = Global.Container.GetInstance<BlogController>();
+            var controller = container.GetInstance<BlogController>();
             var posts = controller.Get();
 
             Assert.NotNull(posts);
