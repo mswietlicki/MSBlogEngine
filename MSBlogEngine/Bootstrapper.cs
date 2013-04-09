@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Http;
+using MSBlogEngine.Storage;
+using MSBlogEngine.Storage.FileStorage;
 using SimpleInjector;
 
 namespace MSBlogEngine

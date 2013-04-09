@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace MSBlogEngine
+namespace MSBlogEngine.Storage.FileStorage
 {
     public interface IFileStorage
     {

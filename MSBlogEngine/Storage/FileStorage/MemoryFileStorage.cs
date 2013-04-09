@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MSBlogEngine
+namespace MSBlogEngine.Storage.FileStorage
 {
     public class MemoryFileStorage : IFileStorage
     {
