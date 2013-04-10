@@ -29,7 +29,7 @@ namespace MSBlogEngine
 
             container.RegisterSingle(() => this);
             container.RegisterSingle<IFileStorage>(() => new MemoryFileStorage());
-            container.Register<IBlogStorage>(() => new XMLBlogStorage());
+            container.Register<IBlogStorage>(container.GetInstance<XMLBlogStorage>);
 
             return container;
         }

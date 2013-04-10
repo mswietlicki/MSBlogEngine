@@ -56,6 +56,7 @@
     <Compile Include="BlogControllerTests.cs" />
     <Compile Include="BlogPostUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMLBlogStorageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

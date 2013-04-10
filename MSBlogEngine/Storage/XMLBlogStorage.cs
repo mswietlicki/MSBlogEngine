@@ -10,9 +10,9 @@ namespace MSBlogEngine.Storage
     {
         private readonly IFileStorage _fileStorage;
 
-        public XMLBlogStorage()
+        public XMLBlogStorage(IFileStorage fileStorage)
         {
-            _fileStorage = Global.Container.GetInstance<IFileStorage>();
+            _fileStorage = fileStorage;
         }
 
         public BlogPost GetPost(int id)
@@ -45,7 +45,10 @@ namespace MSBlogEngine.Storage
 
         public void UpdatePost(int id, BlogPost post)
         {
-            
+            var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id));
+            {
+                new XmlSerializer(typeof(BlogPost)).Serialize(stream, post);
+            }
         }
     }
 }
