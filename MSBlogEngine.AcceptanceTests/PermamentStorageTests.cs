@@ -59,10 +59,13 @@ namespace MSBlogEngine.AcceptanceTests
 
             //ACT
             var id = blogController.Put(post);
+            var result = blogController.Get(id);
 
             //VERIFY
             var path = string.Format("Posts\\{0}.xml", id);
             Assert.True(File.Exists(path));
+
+            Assert.Equal(post, result);
 
             //CleanUp
             File.Delete(path);
