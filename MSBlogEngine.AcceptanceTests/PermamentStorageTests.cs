@@ -54,6 +54,7 @@ namespace MSBlogEngine.AcceptanceTests
 
             var container = new Container();
             container.Register<IFileStorage>(() => new LocalFileStorage());
+            container.Register<IBlogStorage>(container.GetInstance<XMLBlogStorage>);
             var blogController = container.GetInstance<BlogController>();
 
             //ACT

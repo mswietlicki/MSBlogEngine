@@ -66,6 +66,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Container.cs" />
     <Compile Include="SimpleInjectorDependencyResolver.cs" />
+    <Compile Include="Storage\FileStorage\LocalFileStorage.cs" />
     <Compile Include="Storage\IBlogStorage.cs" />
     <Compile Include="IContainerBuilder.cs" />
     <Compile Include="Storage\FileStorage\IFileStorage.cs" />
