@@ -22,7 +22,7 @@ namespace MSBlogEngine.AcceptanceTests
         {
             using (var web = new HttpClientFactory().Create())
             {
-                var response = web.GetAsync("Api").Result;
+                var response = web.GetAsync("").Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
             }
@@ -33,7 +33,7 @@ namespace MSBlogEngine.AcceptanceTests
         {
             using (var web = new HttpClientFactory().Create())
             {
-                var response = web.GetAsync("Api/Blog").Result;
+                var response = web.GetAsync("Blog").Result;
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
@@ -57,14 +57,14 @@ namespace MSBlogEngine.AcceptanceTests
             {
                 Guid id;
                 {
-                    var response = web.PutAsJsonAsync("Api", blogPost).Result;
+                    var response = web.PutAsJsonAsync("", blogPost).Result;
                     Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
                     id = response.Content.GetAndDeserializeJsonResult<Guid>();
                     Assert.True(id != Guid.Empty, "Result id is: " + id);
                 }
                 {
-                    var response = web.GetAsync("Api/Blog/" + id).Result;
+                    var response = web.GetAsync("Blog/" + id).Result;
 
                     Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
@@ -73,7 +73,7 @@ namespace MSBlogEngine.AcceptanceTests
                     Assert.Equal(blogPost, result);
                 }
                 {
-                    var response = web.GetAsync("Api/Blog").Result;
+                    var response = web.GetAsync("Blog").Result;
                     var result = response.Content.GetAndDeserializeJsonResult<IEnumerable<BlogPost>>();
 
                     Assert.Contains(blogPost, result);
