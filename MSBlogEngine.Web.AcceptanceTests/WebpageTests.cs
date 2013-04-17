@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MSBlogEngine.Web.AcceptanceTests;
-using Xunit;
+﻿using Xunit;
 
-namespace MSBlogEngine.AcceptanceTests
+namespace MSBlogEngine.Web.AcceptanceTests
 {
     public class WebpageTests
     {
+#if !DEBUG
         [Fact]
+#endif
         public void IsWebpageAccesible()
         {
             using (var web = new HttpClientFactory().Create())
