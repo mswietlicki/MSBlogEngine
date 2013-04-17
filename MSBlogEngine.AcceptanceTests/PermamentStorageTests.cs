@@ -28,7 +28,7 @@ namespace MSBlogEngine.AcceptanceTests
 
             using (var web = new HttpClientFactory().Create())
             {
-                var response = web.PutAsJsonAsync("", blogPost).Result;
+                var response = web.PutAsJsonAsync("Api", blogPost).Result;
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
                 id = response.Content.GetAndDeserializeJsonResult<Guid>();

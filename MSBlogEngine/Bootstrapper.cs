@@ -14,7 +14,7 @@ namespace MSBlogEngine
         {
             config.Routes.MapHttpRoute(
                 name: "API Default",
-                routeTemplate: "{controller}/{id}",
+                routeTemplate: "API/{controller}/{id}",
                 defaults: new
                     {
                         controller = "Blog",
