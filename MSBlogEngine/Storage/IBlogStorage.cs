@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MSBlogEngine.Models;
 
 namespace MSBlogEngine.Storage
 {
     public interface IBlogStorage
     {
-        BlogPost GetPost(int id);
-        int AddPost(BlogPost post);
+        BlogPost GetPost(Guid id);
+        Guid AddPost(BlogPost post);
         IEnumerable<BlogPost> GetPosts();
-        void UpdatePost(int id, BlogPost post);
+        void UpdatePost(Guid id, BlogPost post);
     }
 }

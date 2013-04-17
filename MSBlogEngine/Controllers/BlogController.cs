@@ -25,17 +25,17 @@ namespace MSBlogEngine.Controllers
             return _blogStorage.GetPosts().ToList();
         }
 
-        public BlogPost Get(int id)
+        public BlogPost Get(Guid id)
         {
             return _blogStorage.GetPost(id);
         }
 
-        public int Put(BlogPost post)
+        public Guid Put(BlogPost post)
         {
             return _blogStorage.AddPost(post); ;
         }
 
-        public void Post(int id, BlogPost post)
+        public void Post(Guid id, BlogPost post)
         {
             _blogStorage.UpdatePost(id, post);
         }

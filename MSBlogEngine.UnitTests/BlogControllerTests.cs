@@ -33,20 +33,21 @@ namespace MSBlogEngine.UnitTests
         public void GetPost()
         {
             //SETUP
+            var id = Guid.Empty;
             var blogPost = new BlogPost();
 
             var container = new Container();
             var blogStorage = new Mock<IBlogStorage>();
-            blogStorage.Setup(o => o.GetPost(0)).Returns(blogPost);
+            blogStorage.Setup(o => o.GetPost(id)).Returns(blogPost);
             container.Register<IBlogStorage>(() => blogStorage.Object);
 
             var controller = container.GetInstance<BlogController>();
 
             //ACT
-            var post = controller.Get(0);
+            var post = controller.Get(id);
 
             //VERIFY
-            blogStorage.Verify(o => o.GetPost(0));
+            blogStorage.Verify(o => o.GetPost(id));
             Assert.Same(post, blogPost);
         }
         
@@ -54,21 +55,22 @@ namespace MSBlogEngine.UnitTests
         public void PutPost()
         {
             //SETUP
+            var id = Guid.Empty;
             var blogPost = new BlogPost();
 
             var container = new Container();
             var blogStorage = new Mock<IBlogStorage>();
-            blogStorage.Setup(o => o.AddPost(blogPost)).Returns(0);
+            blogStorage.Setup(o => o.AddPost(blogPost)).Returns(id);
             container.Register<IBlogStorage>(() => blogStorage.Object);
 
             var controller = container.GetInstance<BlogController>();
 
             //ACT
-            var post = controller.Put(blogPost);
+            var postId = controller.Put(blogPost);
 
             //VERIFY
             blogStorage.Verify(o => o.AddPost(blogPost), Times.Once());
-            Assert.Equal(post, 0);
+            Assert.Equal(postId, id);
         }
 
         [Fact]
@@ -76,7 +78,7 @@ namespace MSBlogEngine.UnitTests
         {
             //SETUP
             var blogPost = new BlogPost();
-            var id = 0;
+            var id = Guid.Empty;
 
             var container = new Container();
             var blogStorage = new Mock<IBlogStorage>();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using MSBlogEngine.Models;
@@ -15,7 +16,7 @@ namespace MSBlogEngine.Storage
             _fileStorage = fileStorage;
         }
 
-        public BlogPost GetPost(int id)
+        public BlogPost GetPost(Guid id)
         {
             return GetPost(string.Format("Posts\\{0}.xml", id));
         }
@@ -28,14 +29,12 @@ namespace MSBlogEngine.Storage
             }
         }
 
-        public int AddPost(BlogPost post)
+        public Guid AddPost(BlogPost post)
         {
-            var id = 0;
-
-            using (var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id)))
+            using (var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", post.Id)))
             {
                 new XmlSerializer(typeof(BlogPost)).Serialize(stream, post);
-                return id;
+                return post.Id;
             }
         }
 
@@ -44,7 +43,7 @@ namespace MSBlogEngine.Storage
             return _fileStorage.GetFilesPaths(f => f.StartsWith("Posts")).Select(GetPost);
         }
 
-        public void UpdatePost(int id, BlogPost post)
+        public void UpdatePost(Guid id, BlogPost post)
         {
             using (var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id)))
             {

@@ -24,14 +24,14 @@ namespace MSBlogEngine.AcceptanceTests
         {
             var blogPost = GetExampleBlogPost();
 
-            int id;
+            Guid id;
 
             using (var web = new HttpClientFactory().Create())
             {
                 var response = web.PutAsJsonAsync("", blogPost).Result;
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
-                id = response.Content.GetAndDeserializeJsonResult<int>();
+                id = response.Content.GetAndDeserializeJsonResult<Guid>();
             }
 
             Assert.Equal(Global.Container.GetInstance<IBlogStorage>().GetPost(id), blogPost);
