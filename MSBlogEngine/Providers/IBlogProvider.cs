@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using MSBlogEngine.Models;
 
-namespace MSBlogEngine.Storage
+namespace MSBlogEngine.Providers
 {
-    public interface IBlogStorage
+    public interface IBlogProvider
     {
         BlogPost GetPost(Guid id);
         Guid AddPost(BlogPost post);

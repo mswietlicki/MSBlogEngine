@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MSBlogEngine.Controllers;
 using MSBlogEngine.Models;
-using MSBlogEngine.Storage;
-using MSBlogEngine.Storage.FileStorage;
+using MSBlogEngine.Providers;
+using MSBlogEngine.Providers.FileStorage;
 using Newtonsoft.Json;
 using SimpleInjector;
 using Xunit;
@@ -36,7 +36,7 @@ namespace MSBlogEngine.AcceptanceTests
                 id = response.Content.GetAndDeserializeJsonResult<Guid>();
             }
 
-            Assert.Equal(Global.Container.GetInstance<IBlogStorage>().GetPost(id), blogPost);
+            Assert.Equal(Global.Container.GetInstance<IBlogProvider>().GetPost(id), blogPost);
         }
 
         private static BlogPost GetExampleBlogPost()
@@ -57,8 +57,8 @@ namespace MSBlogEngine.AcceptanceTests
             var post = GetExampleBlogPost();
 
             var container = new Container();
-            container.Register<IFileStorage>(() => new LocalFileStorage());
-            container.Register<IBlogStorage>(container.GetInstance<XMLBlogStorage>);
+            container.Register<IFileProvider>(() => new LocalFileProvider());
+            container.Register<IBlogProvider>(container.GetInstance<XMLBlogProvider>);
             var blogController = container.GetInstance<BlogController>();
 
             //ACT

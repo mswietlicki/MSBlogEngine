@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Text;
 using System.Web.Http;
-using MSBlogEngine.Storage;
-using MSBlogEngine.Storage.FileStorage;
+using MSBlogEngine.Providers;
+using MSBlogEngine.Providers.FileStorage;
 using SimpleInjector;
 using SimpleInjector.Integration.Web.WebApi;
 
@@ -28,8 +28,8 @@ namespace MSBlogEngine
             var container = new Container();
 
             container.RegisterSingle(() => this);
-            container.RegisterSingle<IFileStorage>(() => new MemoryFileStorage());
-            container.Register<IBlogStorage>(container.GetInstance<XMLBlogStorage>);
+            container.RegisterSingle<IFileProvider>(() => new MemoryFileProvider());
+            container.Register<IBlogProvider>(container.GetInstance<XMLBlogProvider>);
 
             return container;
         }

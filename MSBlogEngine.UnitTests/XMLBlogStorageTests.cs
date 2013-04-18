@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MSBlogEngine.Models;
-using MSBlogEngine.Storage;
-using MSBlogEngine.Storage.FileStorage;
+using MSBlogEngine.Providers;
+using MSBlogEngine.Providers.FileStorage;
 using Moq;
 using SimpleInjector;
 using Xunit;
@@ -19,11 +19,11 @@ namespace MSBlogEngine.UnitTests
         public void UpdatePost()
         {
             var container = new Container();
-            var mock = new Mock<IFileStorage>();
+            var mock = new Mock<IFileProvider>();
             mock.Setup(o => o.GetFileStream(It.IsAny<string>())).Returns(new MemoryStream());
-            container.Register<IFileStorage>(() => mock.Object);
+            container.Register<IFileProvider>(() => mock.Object);
 
-            var storage = container.GetInstance<XMLBlogStorage>();
+            var storage = container.GetInstance<XMLBlogProvider>();
 
             storage.UpdatePost(Guid.Empty, new BlogPost());
 

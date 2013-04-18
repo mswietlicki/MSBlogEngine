@@ -66,14 +66,14 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Container.cs" />
     <Compile Include="SimpleInjectorDependencyResolver.cs" />
-    <Compile Include="Storage\FileStorage\LocalFileStorage.cs" />
-    <Compile Include="Storage\IBlogStorage.cs" />
+    <Compile Include="Providers\FileStorage\LocalFileProvider.cs" />
+    <Compile Include="Providers\IBlogProvider.cs" />
     <Compile Include="IContainerBuilder.cs" />
-    <Compile Include="Storage\FileStorage\IFileStorage.cs" />
-    <Compile Include="Storage\FileStorage\MemoryFileStorage.cs" />
+    <Compile Include="Providers\FileStorage\IFileProvider.cs" />
+    <Compile Include="Providers\FileStorage\MemoryFileProvider.cs" />
     <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage\XMLBlogStorage.cs" />
+    <Compile Include="Providers\XMLBlogProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

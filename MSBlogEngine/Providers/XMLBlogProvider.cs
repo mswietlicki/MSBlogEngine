@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using MSBlogEngine.Models;
-using MSBlogEngine.Storage.FileStorage;
+using MSBlogEngine.Providers.FileStorage;
 
-namespace MSBlogEngine.Storage
+namespace MSBlogEngine.Providers
 {
-    public class XMLBlogStorage : IBlogStorage
+    public class XMLBlogProvider : IBlogProvider
     {
-        private readonly IFileStorage _fileStorage;
+        private readonly IFileProvider _fileProvider;
 
-        public XMLBlogStorage(IFileStorage fileStorage)
+        public XMLBlogProvider(IFileProvider fileProvider)
         {
-            _fileStorage = fileStorage;
+            _fileProvider = fileProvider;
         }
 
         public BlogPost GetPost(Guid id)
@@ -23,7 +23,7 @@ namespace MSBlogEngine.Storage
 
         private BlogPost GetPost(string path)
         {
-            using (var stream = _fileStorage.GetFileStream(path))
+            using (var stream = _fileProvider.GetFileStream(path))
             {
                 return new XmlSerializer(typeof(BlogPost)).Deserialize(stream) as BlogPost;
             }
@@ -31,7 +31,7 @@ namespace MSBlogEngine.Storage
 
         public Guid AddPost(BlogPost post)
         {
-            using (var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", post.Id)))
+            using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", post.Id)))
             {
                 new XmlSerializer(typeof(BlogPost)).Serialize(stream, post);
                 return post.Id;
@@ -40,12 +40,12 @@ namespace MSBlogEngine.Storage
 
         public IEnumerable<BlogPost> GetPosts()
         {
-            return _fileStorage.GetFilesPaths(f => f.StartsWith("Posts")).Select(GetPost);
+            return _fileProvider.GetFilesPaths(f => f.StartsWith("Posts")).Select(GetPost);
         }
 
         public void UpdatePost(Guid id, BlogPost post)
         {
-            using (var stream = _fileStorage.GetFileStream(string.Format("Posts\\{0}.xml", id)))
+            using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", id)))
             {
                 new XmlSerializer(typeof(BlogPost)).Serialize(stream, post);
             }

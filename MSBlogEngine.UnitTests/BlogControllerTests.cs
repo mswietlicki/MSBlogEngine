@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MSBlogEngine.Controllers;
 using MSBlogEngine.Models;
-using MSBlogEngine.Storage;
-using MSBlogEngine.Storage.FileStorage;
+using MSBlogEngine.Providers;
 using SimpleInjector;
 using Xunit;
 using Moq;
@@ -19,8 +18,8 @@ namespace MSBlogEngine.UnitTests
         public void GetPosts()
         {
             var container = new Container();
-            var blogStorage = new Mock<IBlogStorage>();
-            container.Register<IBlogStorage>(() => blogStorage.Object);
+            var blogStorage = new Mock<IBlogProvider>();
+            container.Register<IBlogProvider>(() => blogStorage.Object);
 
             var controller = container.GetInstance<BlogController>();
             var posts = controller.Get();
@@ -37,9 +36,9 @@ namespace MSBlogEngine.UnitTests
             var blogPost = new BlogPost();
 
             var container = new Container();
-            var blogStorage = new Mock<IBlogStorage>();
+            var blogStorage = new Mock<IBlogProvider>();
             blogStorage.Setup(o => o.GetPost(id)).Returns(blogPost);
-            container.Register<IBlogStorage>(() => blogStorage.Object);
+            container.Register<IBlogProvider>(() => blogStorage.Object);
 
             var controller = container.GetInstance<BlogController>();
 
@@ -59,9 +58,9 @@ namespace MSBlogEngine.UnitTests
             var blogPost = new BlogPost();
 
             var container = new Container();
-            var blogStorage = new Mock<IBlogStorage>();
+            var blogStorage = new Mock<IBlogProvider>();
             blogStorage.Setup(o => o.AddPost(blogPost)).Returns(id);
-            container.Register<IBlogStorage>(() => blogStorage.Object);
+            container.Register<IBlogProvider>(() => blogStorage.Object);
 
             var controller = container.GetInstance<BlogController>();
 
@@ -81,9 +80,9 @@ namespace MSBlogEngine.UnitTests
             var id = Guid.Empty;
 
             var container = new Container();
-            var blogStorage = new Mock<IBlogStorage>();
+            var blogStorage = new Mock<IBlogProvider>();
             blogStorage.Setup(o => o.UpdatePost(id, blogPost));
-            container.Register<IBlogStorage>(() => blogStorage.Object);
+            container.Register<IBlogProvider>(() => blogStorage.Object);
 
             var controller = container.GetInstance<BlogController>();
 

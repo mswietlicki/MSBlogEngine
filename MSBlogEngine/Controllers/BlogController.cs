@@ -7,37 +7,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using MSBlogEngine.Models;
-using MSBlogEngine.Storage;
+using MSBlogEngine.Providers;
 
 namespace MSBlogEngine.Controllers
 {
     public class BlogController : ApiController
     {
-        private readonly IBlogStorage _blogStorage;
+        private readonly IBlogProvider _blogProvider;
 
-        public BlogController(IBlogStorage blogStorage)
+        public BlogController(IBlogProvider blogProvider)
         {
-            _blogStorage = blogStorage;
+            _blogProvider = blogProvider;
         }
 
         public List<BlogPost> Get()
         {
-            return _blogStorage.GetPosts().ToList();
+            return _blogProvider.GetPosts().ToList();
         }
 
         public BlogPost Get(Guid id)
         {
-            return _blogStorage.GetPost(id);
+            return _blogProvider.GetPost(id);
         }
 
         public Guid Put(BlogPost post)
         {
-            return _blogStorage.AddPost(post); ;
+            return _blogProvider.AddPost(post); ;
         }
 
         public void Post(Guid id, BlogPost post)
         {
-            _blogStorage.UpdatePost(id, post);
+            _blogProvider.UpdatePost(id, post);
         }
     }
 }

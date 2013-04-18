@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MSBlogEngine.Storage.FileStorage
+namespace MSBlogEngine.Providers.FileStorage
 {
-    public class MemoryFileStorage : IFileStorage
+    public class MemoryFileProvider : IFileProvider
     {
         static readonly Dictionary<string, Stream> Files = new Dictionary<string, Stream>();
 

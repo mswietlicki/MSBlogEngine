@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace MSBlogEngine.Storage.FileStorage
+namespace MSBlogEngine.Providers.FileStorage
 {
-    public class LocalFileStorage: IFileStorage
+    public class LocalFileProvider: IFileProvider
     {
 
         public Stream GetFileStream(string path)

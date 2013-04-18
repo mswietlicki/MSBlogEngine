@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace MSBlogEngine.Storage.FileStorage
+namespace MSBlogEngine.Providers.FileStorage
 {
-    public interface IFileStorage
+    public interface IFileProvider
     {
         Stream GetFileStream(string path);
         IEnumerable<string> GetFilesPaths(Func<string, bool> filter);
