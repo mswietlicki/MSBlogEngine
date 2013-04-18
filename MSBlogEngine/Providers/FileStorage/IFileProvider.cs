@@ -8,5 +8,6 @@ namespace MSBlogEngine.Providers.FileStorage
     {
         Stream GetFileStream(string path);
         IEnumerable<string> GetFilesPaths(Func<string, bool> filter);
+        string GetFileString(string path);
     }
 }

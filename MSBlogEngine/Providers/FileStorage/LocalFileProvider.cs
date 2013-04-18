@@ -19,5 +19,10 @@ namespace MSBlogEngine.Providers.FileStorage
         {
             throw new NotImplementedException();
         }
+
+        public string GetFileString(string path)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

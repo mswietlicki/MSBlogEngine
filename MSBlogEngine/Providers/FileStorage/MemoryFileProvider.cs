@@ -27,6 +27,11 @@ namespace MSBlogEngine.Providers.FileStorage
         {
             return Files.Keys.Where(filter);
         }
+
+        public string GetFileString(string path)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
