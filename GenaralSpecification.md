@@ -18,5 +18,5 @@ General high level MSBlogEngine sprecification.
 13.	Post tags
 14. Markdown as posts format
 15. Crazy idea: integrate with git or even github to store and input blog posts
-16. Maybe post should be not xml but md file with standard header this way I could write and add blog posts by hand. Should comments also be separate md files?
+16. Maybe post should not be xml but md file with metadata. This way I could write and add blog posts by hand. Should comments also be separate md files?
 
