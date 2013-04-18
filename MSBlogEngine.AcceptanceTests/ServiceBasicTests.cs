@@ -9,7 +9,9 @@ namespace MSBlogEngine.AcceptanceTests
 {
     public class ServiceBasicTests
     {
+#if !DEBUG
         [Fact]
+#endif
         public void IsServiceAccesible()
         {
             using (var web = new HttpClientFactory().Create())
@@ -20,7 +22,9 @@ namespace MSBlogEngine.AcceptanceTests
             }
         }
 
+#if !DEBUG
         [Fact]
+#endif
         public void GetBlogPostsCollection()
         {
             using (var web = new HttpClientFactory().Create())
@@ -35,7 +39,9 @@ namespace MSBlogEngine.AcceptanceTests
             }
         }
 
+#if !DEBUG
         [Fact]
+#endif
         public void PutBlogPostToService()
         {
             var blogPost = new BlogPost

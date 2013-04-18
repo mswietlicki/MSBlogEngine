@@ -19,7 +19,9 @@ namespace MSBlogEngine.AcceptanceTests
     public class PermamentStorageTests
     {
 
+#if !DEBUG
         [Fact]
+#endif
         public void PutAndSaveBlogPost()
         {
             var blogPost = GetExampleBlogPost();
@@ -47,7 +49,9 @@ namespace MSBlogEngine.AcceptanceTests
                 };
         }
 
+#if !DEBUG
         [Fact]
+#endif
         public void SavePostToDisk()
         {
             var post = GetExampleBlogPost();
