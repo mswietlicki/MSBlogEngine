@@ -23,7 +23,8 @@ namespace MSBlogEngine.Providers
         {
             using (var stream = _fileProvider.GetFileStream(path))
             {
-                return new BlogPost();
+                var serializer = Global.Container.GetInstance<MarkdownSerializer<BlogPost>>();
+                return serializer.Deserialize(stream);
             }
         }
         public Guid AddPost(BlogPost post)

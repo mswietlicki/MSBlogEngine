@@ -24,7 +24,7 @@ namespace MSBlogEngine.UnitTests
             stringBuilder.AppendLine("TestBody");
 
 
-            mock.Setup(o => o.GetFileString(It.IsAny<string>())).Returns(stringBuilder.ToString());
+            mock.Setup(o => o.GetFileStream(It.IsAny<string>())).Returns(MarkdownSerializerTests.StringBuilderToStream(stringBuilder));
             container.Register<IFileProvider>(() => mock.Object);
 
             var storage = container.GetInstance<MarkdownBlogProvider>();
@@ -35,7 +35,9 @@ namespace MSBlogEngine.UnitTests
 
             Assert.True(post.Title == "Test");
             Assert.True(post.CreateDate == new DateTime(2013, 04, 18, 17, 50, 10));
-            Assert.True(post.Body == "TestBody");
+            Assert.True(post.Body.Trim() == "TestBody");
         }
+
+
     }
 }
