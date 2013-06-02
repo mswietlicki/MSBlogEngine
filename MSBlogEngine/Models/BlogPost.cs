@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 
 namespace MSBlogEngine.Models
 {
@@ -10,7 +12,9 @@ namespace MSBlogEngine.Models
         public string Title
         {
             get { return _title; }
-            set { _title = value; }
+            set { _title = value;
+                Id = GetIdFromTitle(Title);
+            }
         }
 
         public DateTime CreateDate { get; set; }
@@ -40,6 +44,17 @@ namespace MSBlogEngine.Models
                 hashCode = (hashCode * 397) ^ (Body != null ? Body.GetHashCode() : 0);
                 return hashCode;
             }
+        }
+
+
+        private string GetIdFromTitle(string title)
+        {
+            return CleanFileName(title.ToLower().Replace(" ", "_"));
+        }
+
+        private static string CleanFileName(string fileName)
+        {
+            return Path.GetInvalidFileNameChars().Aggregate(fileName, (current, c) => current.Replace(c.ToString(), string.Empty));
         }
 
     }
