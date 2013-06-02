@@ -32,7 +32,7 @@ namespace MSBlogEngine.UnitTests
         public void GetPost()
         {
             //SETUP
-            var id = Guid.Empty;
+            var id = "";
             var blogPost = new BlogPost();
 
             var container = new Container();
@@ -54,7 +54,7 @@ namespace MSBlogEngine.UnitTests
         public void PutPost()
         {
             //SETUP
-            var id = Guid.Empty;
+            var id = "";
             var blogPost = new BlogPost();
 
             var container = new Container();
@@ -77,7 +77,7 @@ namespace MSBlogEngine.UnitTests
         {
             //SETUP
             var blogPost = new BlogPost();
-            var id = Guid.Empty;
+            var id = "";
 
             var container = new Container();
             var blogStorage = new Mock<IBlogProvider>();

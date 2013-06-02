@@ -16,12 +16,12 @@ namespace MSBlogEngine.Providers
             _fileProvider = fileProvider;
         }
 
-        public BlogPost GetPost(Guid id)
+        public BlogPost GetPost(string id)
         {
-            return GetPost(string.Format("Posts\\{0}.xml", id));
+            return GetPostByPath(string.Format("Posts\\{0}.xml", id));
         }
 
-        private BlogPost GetPost(string path)
+        private BlogPost GetPostByPath(string path)
         {
             using (var stream = _fileProvider.GetFileStream(path))
             {
@@ -29,7 +29,7 @@ namespace MSBlogEngine.Providers
             }
         }
 
-        public Guid AddPost(BlogPost post)
+        public string AddPost(BlogPost post)
         {
             using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", post.Id)))
             {
@@ -40,10 +40,10 @@ namespace MSBlogEngine.Providers
 
         public IEnumerable<BlogPost> GetPosts()
         {
-            return _fileProvider.GetFilesPaths(f => f.StartsWith("Posts")).Select(GetPost);
+            return _fileProvider.GetFilesPaths(f => f.StartsWith("Posts")).Select(GetPostByPath);
         }
 
-        public void UpdatePost(Guid id, BlogPost post)
+        public void UpdatePost(string id, BlogPost post)
         {
             using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", id)))
             {

@@ -4,14 +4,21 @@ namespace MSBlogEngine.Models
 {
     public class BlogPost
     {
-        public Guid Id { get; set; }
-        public string Title { get; set; }
+        private string _title;
+
+        public string Id { get; set; }
+        public string Title
+        {
+            get { return _title; }
+            set { _title = value; }
+        }
+
         public DateTime CreateDate { get; set; }
         public string Body { get; set; }
 
         public BlogPost()
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString();
         }
 
         public override bool Equals(object obj)

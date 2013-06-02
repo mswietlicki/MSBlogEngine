@@ -25,7 +25,7 @@ namespace MSBlogEngine.UnitTests
 
             var storage = container.GetInstance<XMLBlogProvider>();
 
-            storage.UpdatePost(Guid.Empty, new BlogPost());
+            storage.UpdatePost("", new BlogPost());
 
             mock.Verify(o => o.GetFileStream(It.IsAny<string>()), Times.Once());
         }

@@ -14,12 +14,12 @@ namespace MSBlogEngine.Providers
             _fileProvider = fileProvider;
         }
 
-        public BlogPost GetPost(Guid id)
+        public BlogPost GetPost(string id)
         {
-            return GetPost(string.Format("Posts\\{0}.md", id));
+            return GetPostByPath(string.Format("Posts\\{0}.md", id));
         }
 
-        private BlogPost GetPost(string path)
+        private BlogPost GetPostByPath(string path)
         {
             using (var stream = _fileProvider.GetFileStream(path))
             {
@@ -27,7 +27,7 @@ namespace MSBlogEngine.Providers
                 return serializer.Deserialize(stream);
             }
         }
-        public Guid AddPost(BlogPost post)
+        public string AddPost(BlogPost post)
         {
             throw new NotImplementedException();
         }
@@ -37,7 +37,7 @@ namespace MSBlogEngine.Providers
             throw new NotImplementedException();
         }
 
-        public void UpdatePost(Guid id, BlogPost post)
+        public void UpdatePost(string id, BlogPost post)
         {
             throw new NotImplementedException();
         }

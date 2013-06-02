@@ -29,7 +29,7 @@ namespace MSBlogEngine.UnitTests
 
             var storage = container.GetInstance<MarkdownBlogProvider>();
 
-            var post = storage.GetPost(Guid.Empty);
+            var post = storage.GetPost("");
 
             mock.Verify(o => o.GetFileStream(It.IsAny<string>()), Times.Once());
 

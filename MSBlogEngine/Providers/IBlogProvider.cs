@@ -6,9 +6,9 @@ namespace MSBlogEngine.Providers
 {
     public interface IBlogProvider
     {
-        BlogPost GetPost(Guid id);
-        Guid AddPost(BlogPost post);
+        BlogPost GetPost(string id);
+        string AddPost(BlogPost post);
         IEnumerable<BlogPost> GetPosts();
-        void UpdatePost(Guid id, BlogPost post);
+        void UpdatePost(string id, BlogPost post);
     }
 }
