@@ -53,13 +53,13 @@ namespace MSBlogEngine.AcceptanceTests
 
             using (var web = new HttpClientFactory().Create())
             {
-                Guid id;
+                string id;
                 {
                     var response = web.PutAsJsonAsync("", blogPost).Result;
                     Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
 
-                    id = response.Content.GetAndDeserializeJsonResult<Guid>();
-                    Assert.True(id != Guid.Empty, "Result id is: " + id);
+                    id = response.Content.GetAndDeserializeJsonResult<string>();
+                    Assert.True(id != "", "Result id is: " + id);
                 }
                 {
                     var response = web.GetAsync("Blog/" + id).Result;
