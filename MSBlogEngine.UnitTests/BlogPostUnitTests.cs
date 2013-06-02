@@ -64,5 +64,26 @@ namespace MSBlogEngine.UnitTests
             Assert.NotEqual(a.GetHashCode(), b.GetHashCode());
         }
 
+
+        public static IEnumerable<object[]> ExamplePostsData
+        {
+            get
+            {
+                return new[]
+                    {
+                        new object[] { new BlogPost {Title = "Testowy", Body = "tet", CreateDate = new DateTime(2011, 1, 1)}, "testowy" },
+                        new object[] { new BlogPost {Title = "Zielona mila", Body = "tet", CreateDate = new DateTime(2011, 1, 1) } , "zielona_mila"},
+                        new object[] { new BlogPost {Title = "NDC 2012 – Moje oceny", Body = "tet", CreateDate = new DateTime(2011, 1, 1)}, "ndc_2012_–_moje_oceny"},
+                    };
+            }
+        }
+
+        [Theory]
+        [PropertyData("ExamplePostsData")]
+        public void PostIdGreatedFromTitle(BlogPost a, string id)
+        {
+            Assert.Equal(a.Id, id);
+        }
+
     }
 }
