@@ -16,8 +16,8 @@ namespace MSBlogEngine
         {
             using (var reader = new StreamReader(stream))
             {
-                var source = reader.ReadToEnd();
                 var engine = new Markdown();
+                var source = reader.ReadToEnd();
                 var metadata = engine.GetMetadata(source);
 
                 var t = Activator.CreateInstance<T>();
