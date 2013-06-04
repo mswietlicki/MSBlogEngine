@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBlogEngine.Web.Acceptance
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBlogEngine.Web", "MSBlogEngine.Web\MSBlogEngine.Web.csproj", "{E278F03D-D7A8-4809-9483-D806048EA694}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBlogEngine.Web.UnitTests", "MSBlogEngine.Web.UnitTests\MSBlogEngine.Web.UnitTests.csproj", "{EC36A038-EEAA-4159-AC16-22A08945AFEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{E278F03D-D7A8-4809-9483-D806048EA694}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E278F03D-D7A8-4809-9483-D806048EA694}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E278F03D-D7A8-4809-9483-D806048EA694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC36A038-EEAA-4159-AC16-22A08945AFEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC36A038-EEAA-4159-AC16-22A08945AFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC36A038-EEAA-4159-AC16-22A08945AFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC36A038-EEAA-4159-AC16-22A08945AFEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
