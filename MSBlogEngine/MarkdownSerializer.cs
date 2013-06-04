@@ -5,43 +5,30 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Text.RegularExpressions;
 using MSBlogEngine.Models;
+using MarkdownSharp;
 
 namespace MSBlogEngine
 {
     public class MarkdownSerializer<T>
     {
-        private static readonly Regex _metadataRegex = new Regex(@"^(?<name>\w+):[\t ]+(?<value>.+)$");
-
         public T Deserialize(Stream stream)
         {
             using (var reader = new StreamReader(stream))
             {
+                var source = reader.ReadToEnd();
+                var engine = new Markdown();
+                var metadata = engine.GetMetadata(source);
+
                 var t = Activator.CreateInstance<T>();
 
-                GetMetadata(reader, t);
-
-                SetValue(t, "Body", reader.ReadToEnd());
+                foreach (var data in metadata)
+                {
+                    SetValue(t, data.Key, data.Value.FirstOrDefault());
+                }
 
                 return t;
             }
-        }
-
-        private static void GetMetadata(StreamReader reader, T t)
-        {
-            string line;
-            while (!string.IsNullOrEmpty(line = reader.ReadLine()))
-            {
-                GetAndInsertMetadata(line, t);
-            }
-        }
-
-        private static void GetAndInsertMetadata(string line, T t)
-        {
-            var lineMatch = _metadataRegex.Match(line);
-
-            SetValue(t, lineMatch.Groups["name"].Value, lineMatch.Groups["value"].Value);
         }
 
         private static void SetValue(T t, string name, string value)
@@ -77,16 +64,17 @@ namespace MSBlogEngine
             var streamWriter = new StreamWriter(stream);
 
             var properties = o.GetType().GetProperties();
-            foreach (var propertyInfo in properties)
+            foreach (var propertyInfo in properties.Where(propertyInfo => propertyInfo.Name != "Id" && propertyInfo.Name != "Body"))
             {
-                if (propertyInfo.Name == "Id") continue;
-                if (propertyInfo.Name != "Body") streamWriter.WriteLine("{0}:\t{1}", propertyInfo.Name, propertyInfo.GetValue(o));
-                else
-                {
-                    streamWriter.WriteLine();
-                    streamWriter.Write(propertyInfo.GetValue(o));
-                }
+                streamWriter.WriteLine("{0}:\t{1}", propertyInfo.Name, propertyInfo.GetValue(o));
             }
+
+            {
+                var propertyInfo = properties.First(p => p.Name == "Body");
+                streamWriter.WriteLine();
+                streamWriter.Write(propertyInfo.GetValue(o));
+            }
+
             streamWriter.Flush();
         }
     }
