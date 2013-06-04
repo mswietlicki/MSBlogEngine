@@ -12,5 +12,10 @@ namespace MSBlogEngine.Web.Controllers
         {
             return new ContentResult() { Content = "Welcome" };
         }
+
+        public ActionResult Get(string id)
+        {
+            return new ContentResult() { Content = id };
+        }
     }
 }

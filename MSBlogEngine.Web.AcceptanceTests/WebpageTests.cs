@@ -18,7 +18,16 @@ namespace MSBlogEngine.Web.AcceptanceTests
         }
 
 
+        [Fact]
+        public void IsGetAccesible()
+        {
+            using (var web = new HttpClientFactory().Create())
+            {
+                var response = web.GetAsync("Post/Get/zielona_mila").Result;
 
+                Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
+            }
+        }
     }
 #endif
 }
