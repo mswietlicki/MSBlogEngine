@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\..\markdownsharp\MarkdownSharp\bin\Debug\MarkdownSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SimpleInjector">
       <HintPath>..\packages\SimpleInjector.2.2.0\lib\net40-client\SimpleInjector.dll</HintPath>

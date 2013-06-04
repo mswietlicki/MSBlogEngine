@@ -2,11 +2,11 @@
 
 namespace MSBlogEngine.Web.AcceptanceTests
 {
+#if !DEBUG
     public class WebpageTests
     {
-#if !DEBUG
+
         [Fact]
-#endif
         public void IsWebpageAccesible()
         {
             using (var web = new HttpClientFactory().Create())
@@ -15,7 +15,10 @@ namespace MSBlogEngine.Web.AcceptanceTests
 
                 Assert.True(response.IsSuccessStatusCode, "Status code : " + response.StatusCode);
             }
-
         }
+
+
+
     }
+#endif
 }

@@ -58,6 +58,7 @@
     <Compile Include="BlogControllerTests.cs" />
     <Compile Include="BlogPostUnitTests.cs" />
     <Compile Include="MarkdownBlogProviderTests.cs" />
+    <Compile Include="MarkdownRenderTests.cs" />
     <Compile Include="MarkdownSerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLBlogStorageTests.cs" />
