@@ -20,9 +20,11 @@ namespace MSBlogEngine.Web.Controllers
             _blogController = blogController;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 0)
         {
-            return new ContentResult() { Content = "Welcome" };
+            var posts = _blogController.Get().Skip(page * 10).Take(10);
+
+            return View(posts);
         }
 
         public ActionResult Get(string id)

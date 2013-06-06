@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MSBlogEngine.Models;
 using MSBlogEngine.Providers.FileStorage;
 
@@ -35,7 +36,7 @@ namespace MSBlogEngine.Providers
 
         public IEnumerable<BlogPost> GetPosts()
         {
-            throw new NotImplementedException();
+            return _fileProvider.GetFilesPaths(f => f.Contains("Posts\\")).Select(GetPostByPath);
         }
 
         public void UpdatePost(string id, BlogPost post)

@@ -39,6 +39,20 @@ namespace MSBlogEngine.UnitTests
             Assert.True(post.Body.Trim() == "TestBody");
         }
 
+        [Fact]
+        public void GetPosts()
+        {
+            //SETUP
+            var container = new Container();
+            var filePrivider = new Mock<IFileProvider>();
+            container.Register<IFileProvider>(() => filePrivider.Object);
 
+            var storage = container.GetInstance<MarkdownBlogProvider>();
+            //ACT
+            var posts = storage.GetPosts();
+            //VERIFY
+            Assert.NotNull(posts);
+
+        }
     }
 }

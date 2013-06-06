@@ -1,0 +1,15 @@
+﻿@using System.Globalization
+@model System.Collections.Generic.IEnumerable<MSBlogEngine.Models.BlogPost>
+
+@{
+    ViewBag.Title = "Mateusz Świetlicki";
+}
+
+<h2>Posty</h2>
+
+<ul>
+    @foreach (var post in Model)
+    {
+        <li>@Html.ActionLink(post.Title + "(" + post.CreateDate.ToString(CultureInfo.InvariantCulture) + ")", "Get", "Post", new { Id = post.Id }, null)</li>
+    }
+</ul>
