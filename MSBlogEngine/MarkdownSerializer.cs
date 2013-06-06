@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using MarkdownSharp;
@@ -19,7 +20,14 @@ namespace MSBlogEngine
 
                 foreach (var data in metadata)
                 {
-                    SetValue(t, data.Key, data.Value.FirstOrDefault());
+                    try
+                    {
+                        SetValue(t, data.Key, data.Value.FirstOrDefault());
+                    }
+                    catch (KeyNotFoundException)
+                    {
+                        
+                    }
                 }
 
                 return t;
@@ -29,6 +37,8 @@ namespace MSBlogEngine
         private static void SetValue(T t, string name, string value)
         {
             var propertyInfo = typeof(T).GetProperty(name);
+            if (propertyInfo == null) throw new KeyNotFoundException("Property " + name + " not found.");
+
             if (propertyInfo.PropertyType == typeof(string))
                 propertyInfo.SetValue(t, value);
             else

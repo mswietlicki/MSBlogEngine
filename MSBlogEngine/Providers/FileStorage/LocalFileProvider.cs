@@ -9,8 +9,8 @@ namespace MSBlogEngine.Providers.FileStorage
 
         public Stream GetFileStream(string path)
         {
-            var directoryName = Path.GetDirectoryName(path);
-            if (!Directory.Exists(directoryName)) Directory.CreateDirectory(directoryName);
+            var directory = new DirectoryInfo(Path.GetDirectoryName(path));
+            if (!directory.Exists) Directory.CreateDirectory(directory.FullName);
 
             return new FileStream(path, FileMode.OpenOrCreate);
         }

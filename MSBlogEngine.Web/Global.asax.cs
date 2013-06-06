@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -15,22 +16,16 @@ namespace MSBlogEngine.Web
     // visit http://go.microsoft.com/?LinkId=9394801
     public class Global : System.Web.HttpApplication
     {
-        private static Container _container;
         public static Container Container
         {
-            get { return _container ?? (_container = BuildContainer()); }
-        }
-
-        private static Container BuildContainer()
-        {
-            var container = new Container();
-
-
-            return container;
+            get { return MSBlogEngine.Global.Container; }
         }
 
         protected void Application_Start()
         {
+            string path = HttpContext.Current.Server.MapPath("~/App_Data");
+            Directory.SetCurrentDirectory(path);
+
             Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             Container.RegisterMvcAttributeFilterProvider();
             Container.Verify();

@@ -29,8 +29,8 @@ namespace MSBlogEngine
             var container = new Container();
 
             container.RegisterSingle(() => this);
-            container.RegisterSingle<IFileProvider>(() => new MemoryFileProvider());
-            container.Register<IBlogProvider>(container.GetInstance<XMLBlogProvider>);
+            container.RegisterSingle<IFileProvider>(() => new LocalFileProvider());
+            container.Register<IBlogProvider>(container.GetInstance<MarkdownBlogProvider>);
             container.Register<IPostRenderEngine>(container.GetInstance<HtmlPostRenderEngine>);
 
 
