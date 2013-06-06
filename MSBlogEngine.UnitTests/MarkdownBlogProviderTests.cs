@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using MSBlogEngine.Common;
 using MSBlogEngine.Providers;
 using MSBlogEngine.Providers.FileStorage;
 using Moq;
@@ -24,7 +25,7 @@ namespace MSBlogEngine.UnitTests
             stringBuilder.AppendLine("TestBody");
 
 
-            mock.Setup(o => o.GetFileStream(It.IsAny<string>())).Returns(MarkdownSerializerTests.StringBuilderToStream(stringBuilder));
+            mock.Setup(o => o.GetFileStream(It.IsAny<string>())).Returns(stringBuilder.ToStream());
             container.Register<IFileProvider>(() => mock.Object);
 
             var storage = container.GetInstance<MarkdownBlogProvider>();

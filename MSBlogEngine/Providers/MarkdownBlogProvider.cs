@@ -8,10 +8,12 @@ namespace MSBlogEngine.Providers
     public class MarkdownBlogProvider : IBlogProvider
     {
         private readonly IFileProvider _fileProvider;
+        private readonly MarkdownSerializer<BlogPost> _markdownSerializer;
 
-        public MarkdownBlogProvider(IFileProvider fileProvider)
+        public MarkdownBlogProvider(IFileProvider fileProvider, MarkdownSerializer<BlogPost> markdownSerializer)
         {
             _fileProvider = fileProvider;
+            _markdownSerializer = markdownSerializer;
         }
 
         public BlogPost GetPost(string id)
@@ -23,8 +25,7 @@ namespace MSBlogEngine.Providers
         {
             using (var stream = _fileProvider.GetFileStream(path))
             {
-                var serializer = Global.Container.GetInstance<MarkdownSerializer<BlogPost>>();
-                return serializer.Deserialize(stream);
+                return _markdownSerializer.Deserialize(stream);
             }
         }
         public string AddPost(BlogPost post)

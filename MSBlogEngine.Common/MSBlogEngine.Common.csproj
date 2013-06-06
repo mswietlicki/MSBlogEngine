@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC36A038-EEAA-4159-AC16-22A08945AFEB}</ProjectGuid>
+    <ProjectGuid>{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MSBlogEngine.Web.UnitTests</RootNamespace>
-    <AssemblyName>MSBlogEngine.Web.UnitTests</AssemblyName>
+    <RootNamespace>MSBlogEngine.Common</RootNamespace>
+    <AssemblyName>MSBlogEngine.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,47 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleInjector">
-      <HintPath>..\packages\SimpleInjector.2.2.0\lib\net40-client\SimpleInjector.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit">
-      <HintPath>..\packages\xunit.2.0.0-alpha-build1611\lib\net45\xunit.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.extensions">
-      <HintPath>..\packages\xunit.extensions.2.0.0-alpha-build1611\lib\net45\xunit.extensions.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PostTests.cs" />
+    <Compile Include="StringBuilderExtentions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MSBlogEngine.Common\MSBlogEngine.Common.csproj">
-      <Project>{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}</Project>
-      <Name>MSBlogEngine.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MSBlogEngine.Web\MSBlogEngine.Web.csproj">
-      <Project>{e278f03d-d7a8-4809-9483-d806048ea694}</Project>
-      <Name>MSBlogEngine.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MSBlogEngine\MSBlogEngine.csproj">
-      <Project>{475064CF-A687-42A1-8572-FFE316706B64}</Project>
-      <Name>MSBlogEngine</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

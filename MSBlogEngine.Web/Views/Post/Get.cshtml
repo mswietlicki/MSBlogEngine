@@ -1,0 +1,12 @@
+﻿@model MSBlogEngine.Web.Models.PostModel
+
+@{
+    ViewBag.Title = "Mateusz Świetlicki: " + Model.Post.Title;
+    Layout = "_Layout";
+}
+
+<h2>@Model.Post.Title</h2>
+
+<p>
+    @Html.Raw(Model.Html)
+</p>

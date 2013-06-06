@@ -67,7 +67,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\BlogController.cs" />
-    <Compile Include="Container.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Render\HtmlPostRenderEngine.cs" />
     <Compile Include="Render\IPostRenderEngine.cs" />
     <Compile Include="MarkdownSerializer.cs" />

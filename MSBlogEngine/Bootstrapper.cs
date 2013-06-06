@@ -3,6 +3,7 @@ using System.Text;
 using System.Web.Http;
 using MSBlogEngine.Providers;
 using MSBlogEngine.Providers.FileStorage;
+using MSBlogEngine.Render;
 using SimpleInjector;
 using SimpleInjector.Integration.Web.WebApi;
 
@@ -30,6 +31,8 @@ namespace MSBlogEngine
             container.RegisterSingle(() => this);
             container.RegisterSingle<IFileProvider>(() => new MemoryFileProvider());
             container.Register<IBlogProvider>(container.GetInstance<XMLBlogProvider>);
+            container.Register<IPostRenderEngine>(container.GetInstance<HtmlPostRenderEngine>);
+
 
             return container;
         }
