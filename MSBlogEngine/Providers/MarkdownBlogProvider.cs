@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using MSBlogEngine.Models;
 using MSBlogEngine.Providers.FileStorage;
@@ -24,9 +25,12 @@ namespace MSBlogEngine.Providers
 
         private BlogPost GetPostByPath(string path)
         {
+
             using (var stream = _fileProvider.GetFileStream(path))
             {
-                return _markdownSerializer.Deserialize(stream);
+                var post = _markdownSerializer.Deserialize(stream);
+                post.Id = new FileInfo(path).Name.Replace(".md", "");
+                return post;
             }
         }
         public string AddPost(BlogPost post)

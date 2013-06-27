@@ -1,42 +1,38 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Mateusz Świetlicki", "Index", "Post")</p>
-                </div>
-                <div class="float-right">
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Post")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
+<head>
+    <meta charset="utf-8" />
+    <title>Mateusz Świetlicki: @ViewBag.Title</title>
+    <link href="http://www.microsoft.com/visualstudio/_base_v2/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="Blog, Mateusz Świetlicki, C#, CSharp, Programing, Software development, Microsoft, visual studio, visual studio 2012, Git">
+    <meta http-equiv="content-language" content="pl">
+    <link href="~/Content/Site.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <nav id="nav">
+            <ul>
+                <li class="big">@Html.ActionLink("Mateusz Świetlicki", "Index", "Post")</li>
+                <li>@Html.ActionLink("Projekty", "Index", "Post")</li>
+                <li>@Html.ActionLink("O mnie", "Index", "Post")</li>
+            </ul>
+        </nav>
+    </header>
+    <div id="body">
+        <section id="mainBody" >
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                @*<p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>*@
             </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
+    </footer>
 
-@*        @Scripts.Render("~/bundles/jquery")*@
-        @RenderSection("scripts", required: false)
-    </body>
+    @*        @Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+</body>
 </html>

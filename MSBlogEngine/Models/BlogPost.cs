@@ -12,13 +12,17 @@ namespace MSBlogEngine.Models
         public string Title
         {
             get { return _title; }
-            set { _title = value;
+            set
+            {
+                _title = value;
                 Id = GetIdFromTitle(Title);
             }
         }
 
         public DateTime CreateDate { get; set; }
         public string Body { get; set; }
+
+        public string Summary { get; set; }
 
         public BlogPost()
         {
