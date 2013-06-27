@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -24,9 +26,12 @@ namespace MSBlogEngine.Models
 
         public string Summary { get; set; }
 
+        public List<string> Tags { get; set; }
+
         public BlogPost()
         {
             Id = Guid.NewGuid().ToString();
+            Tags = new List<string>() { "Test", "C#", "Visual Studio" };
         }
 
         public override bool Equals(object obj)

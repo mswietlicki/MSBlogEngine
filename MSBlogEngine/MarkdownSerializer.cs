@@ -26,7 +26,7 @@ namespace MSBlogEngine
                     }
                     catch (KeyNotFoundException)
                     {
-                        
+
                     }
                 }
 
@@ -41,8 +41,14 @@ namespace MSBlogEngine
 
             if (propertyInfo.PropertyType == typeof(string))
                 propertyInfo.SetValue(t, value);
+            else if (propertyInfo.PropertyType.IsGenericType)
+            {
+                var list = propertyInfo.GetValue(t, null);
+                propertyInfo.PropertyType.GetMethod("Add").Invoke(list, new[] { value });
+            }
             else
             {
+
                 var obj = Convert.ChangeType(value, propertyInfo.PropertyType);
                 propertyInfo.SetValue(t, obj);
             }

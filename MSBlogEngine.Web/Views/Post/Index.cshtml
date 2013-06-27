@@ -5,15 +5,26 @@
     ViewBag.Title = "Mateusz Świetlicki";
 }
 
-<ul id="mainList">
+<div class="mainList">
+<ul >
     @foreach (var post in Model)
     {
         <li>
-            <h3>@Html.ActionLink(post.Title + " (" + post.CreateDate.ToString(CultureInfo.InvariantCulture) + ")", "Get", "Post", new { Id = post.Id }, null)</h3>
-            <div>
-                @post.Summary
+            <div class="menuTitle">@Html.ActionLink(post.Title, "Get", "Post", new { Id = post.Id }, null)</div>
+            <div style="float:none">
+                <div class="menuTime">
+                    @post.CreateDate.ToString(CultureInfo.InvariantCulture)
+                </div>
+                <ul class="tagList">
+                    @foreach (var tag in post.Tags)
+                    {
+                        <li>@tag</li>
+                    }
+                </ul>
+                <div style="clear: both"></div>
             </div>
 
         </li>
     }
 </ul>
+</div>
