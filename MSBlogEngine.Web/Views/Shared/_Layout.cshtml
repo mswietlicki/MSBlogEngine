@@ -12,13 +12,14 @@
 <body>
     <header id="top-bar">
         <div class="titleImg">
-            <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" /></div>
+            <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
+        </div>
         <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Index", "Post")</div>
         <div class="subtitle">Blog programistyczny .NET</div>
         <ul class="nav">
             <li>@Html.ActionLink("Blog", "Index", "Post")</li>
             <li>@Html.ActionLink("Projekty", "Index", "Post")</li>
-            <li>@Html.ActionLink("O mnie", "Index", "Post")</li>
+            <li>@Html.ActionLink("O mnie", "Get", "Post", new { id = "O mnie" }, null)</li>
         </ul>
     </header>
     <div id="content">
