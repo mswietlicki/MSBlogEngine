@@ -55,7 +55,7 @@ namespace MSBlogEngine.UnitTests
         {
             //SETUP
             var id = "";
-            var blogPost = new BlogPost { Hidded = true };
+            var blogPost = new BlogPost { Hidden = true };
 
             var container = new Container();
             var blogStorage = new Mock<IBlogProvider>();

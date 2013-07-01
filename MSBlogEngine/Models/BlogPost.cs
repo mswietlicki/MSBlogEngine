@@ -23,7 +23,7 @@ namespace MSBlogEngine.Models
 
         public DateTime CreateDate { get; set; }
 
-        public bool Hidded { get; set; }
+        public bool Hidden { get; set; }
 
         public string Body { get; set; }
 
