@@ -34,7 +34,7 @@ namespace MSBlogEngine.Models
         public BlogPost()
         {
             Id = Guid.NewGuid().ToString();
-            Tags = new List<string>() { "Test", "C#", "Visual Studio" };
+            Tags = new List<string>() { };
         }
 
         public override bool Equals(object obj)

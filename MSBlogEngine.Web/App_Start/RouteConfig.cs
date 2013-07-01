@@ -15,8 +15,8 @@ namespace MSBlogEngine.Web
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Post", action = "Index", id = UrlParameter.Optional }
+                url: "{action}/{id}",
+                defaults: new { controller = "Post", action = "Posts", id = UrlParameter.Optional }
             );
         }
     }

@@ -20,14 +20,19 @@ namespace MSBlogEngine.Web.Controllers
             _blogController = blogController;
         }
 
-        public ActionResult Index(int page = 0)
+        public ActionResult Posts(string tag = "", int page = 0)
         {
-            var postModels = _blogController.Get().Select(post => new PostModel(post, _renderEngine.Render(post)));
+            var postModels = _blogController
+                .Get()
+                .Where(p => 
+                    string.IsNullOrWhiteSpace(tag) || 
+                    p.Tags.Any(t=>t.Equals(tag, StringComparison.InvariantCultureIgnoreCase)))
+                .Select(post => new PostModel(post, _renderEngine.Render(post)));
 
             return View(postModels);
         }
 
-        public ActionResult Get(string id)
+        public ActionResult Post(string id)
         {
             var post = _blogController.Get(id);
             var html = _renderEngine.Render(post);

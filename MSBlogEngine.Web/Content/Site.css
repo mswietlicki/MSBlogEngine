@@ -113,9 +113,11 @@ body {
 
 .post .date {
     float: left;
+    color: #666666;
 }
 
 .post .tags {
     float: left;
     margin-left: 10px;
+    color: #666666;
 }

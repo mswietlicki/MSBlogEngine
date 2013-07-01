@@ -1,7 +1,8 @@
 Title: NDC 2012 – Moje oceny
 Autor: Mateusz Świetlicki
 CreateDate: 2012-07-13 19:15
-Tags: 	Norwegian Developers Conference
+Tags: 	Blog
+		Norwegian Developers Conference
 		Oslo
 		Conference
 		Agile

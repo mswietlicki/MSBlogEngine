@@ -30,7 +30,7 @@ namespace MSBlogEngine.Web.UnitTests
             var controller = container.GetInstance<PostController>();
 
             //Act
-            var result = controller.Get("test") as ViewResult;
+            var result = controller.Post("test") as ViewResult;
             var html = (result.Model as PostModel).Html;
 
             //Assert
