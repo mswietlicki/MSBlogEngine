@@ -1,0 +1,10 @@
+﻿@model MSBlogEngine.Web.Models.PostModel
+
+<div class="post">
+    <div class="date">@Model.Post.CreateDate</div>
+    <div class="tags">@Model.Post.Tags.Aggregate("", (acc, o) => acc + o + ", ")</div>
+    <div style="clear: both"></div>
+    <div>
+        @Html.Raw(@Model.Html)
+    </div>
+</div>

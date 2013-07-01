@@ -2,19 +2,12 @@
 @model System.Collections.Generic.IEnumerable<MSBlogEngine.Web.Models.PostModel>
 
 @{
-    ViewBag.Title = "Mateusz Świetlicki";
+    ViewBag.Title = "Mateusz Świetlicki: Blog programisty .NET";
 }
 
 <div id="mainList">
     @foreach (var post in Model)
     {
-        <div class="post">
-            <div class="date">@post.Post.CreateDate</div>
-            <div class="tags">@post.Post.Tags.Aggregate("", (acc, o) => acc + " " + o)</div>
-            <div style="clear: both"></div>
-            <div>
-                @Html.Raw(@post.Html)
-            </div>
-        </div>
+        @Html.DisplayFor(m => post)
     }
 </div>
