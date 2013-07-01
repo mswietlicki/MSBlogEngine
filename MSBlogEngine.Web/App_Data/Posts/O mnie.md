@@ -2,6 +2,7 @@ Title: O mnie
 Autor: Mateusz Świetlicki
 CreateDate: 2013-07-01 17:42
 Hidden: True
+Tags:	O mnie
 
 Mateusz Świetlicki
 ============

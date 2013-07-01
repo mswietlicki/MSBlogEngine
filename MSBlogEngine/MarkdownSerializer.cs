@@ -22,7 +22,10 @@ namespace MSBlogEngine
                 {
                     try
                     {
-                        SetValue(t, data.Key, data.Value.FirstOrDefault());
+                        foreach (var value in data.Value)
+                        {
+                            SetValue(t, data.Key, value);
+                        }
                     }
                     catch (KeyNotFoundException)
                     {

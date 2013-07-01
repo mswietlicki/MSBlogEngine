@@ -20,7 +20,7 @@ namespace MSBlogEngine.Web.Controllers
             _blogController = blogController;
         }
 
-        public ActionResult Posts(string tag = "", int page = 0)
+        public ActionResult Posts(string tag = "blog", int page = 0)
         {
             var postModels = _blogController
                 .Get()
