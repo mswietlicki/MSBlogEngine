@@ -22,7 +22,7 @@ namespace MSBlogEngine.Controllers
 
         public List<BlogPost> Get()
         {
-            return _blogProvider.GetPosts().OrderByDescending(post => post.CreateDate).ToList();
+            return _blogProvider.GetPosts().Where(post => !post.Hidded).OrderByDescending(post => post.CreateDate).ToList();
         }
 
         public BlogPost Get(string id)

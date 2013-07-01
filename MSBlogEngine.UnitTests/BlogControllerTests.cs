@@ -49,7 +49,29 @@ namespace MSBlogEngine.UnitTests
             blogStorage.Verify(o => o.GetPost(id));
             Assert.Same(post, blogPost);
         }
-        
+
+        [Fact]
+        public void HiddentPost()
+        {
+            //SETUP
+            var id = "";
+            var blogPost = new BlogPost { Hidded = true };
+
+            var container = new Container();
+            var blogStorage = new Mock<IBlogProvider>();
+            blogStorage.Setup(o => o.GetPost(id)).Returns(blogPost);
+            container.Register<IBlogProvider>(() => blogStorage.Object);
+
+            var controller = container.GetInstance<BlogController>();
+
+            //ACT
+            var posts = controller.Get();
+
+            //VERIFY
+            blogStorage.Verify(o => o.GetPosts());
+            Assert.Empty(posts);
+        }
+
         [Fact]
         public void PutPost()
         {
@@ -91,7 +113,7 @@ namespace MSBlogEngine.UnitTests
 
             //VERIFY
             blogStorage.Verify(o => o.UpdatePost(id, blogPost), Times.Once());
-            
+
         }
 
 
