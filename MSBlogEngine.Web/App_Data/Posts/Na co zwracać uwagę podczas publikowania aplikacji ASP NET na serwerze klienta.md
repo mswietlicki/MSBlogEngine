@@ -1,6 +1,6 @@
 Title: Na co zwracać uwagę podczas publikowania aplikacji ASP.NET na serwerze klienta
 Autor: Mateusz Świetlicki
-Data: 13. lipca 2012 19:15
+CreateDate: 2012-07-14 19:15
 Tags: 	ASP.NET
 		EntityFramework
 		SQL

@@ -22,6 +22,7 @@ namespace MSBlogEngine.Models
         }
 
         public DateTime CreateDate { get; set; }
+
         public string Body { get; set; }
 
         public string Summary { get; set; }

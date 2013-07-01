@@ -1,6 +1,6 @@
 Title: Testowa strona
 Autor: Mateusz Świetlicki
-Data: 06-06-2013 15:30
+CreateDate: 2013-06-06 18:15
 
 MSBlogEngine
 ============
