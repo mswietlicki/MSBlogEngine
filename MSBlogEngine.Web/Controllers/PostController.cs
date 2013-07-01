@@ -22,9 +22,9 @@ namespace MSBlogEngine.Web.Controllers
 
         public ActionResult Index(int page = 0)
         {
-            var posts = _blogController.Get().Skip(page * 10).Take(10);
+            var postModels = _blogController.Get().Select(post => new PostModel(post, _renderEngine.Render(post)));
 
-            return View(posts);
+            return View(postModels);
         }
 
         public ActionResult Get(string id)

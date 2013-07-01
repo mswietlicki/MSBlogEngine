@@ -4,8 +4,12 @@
     ViewBag.Title = "Mateusz Świetlicki: " + Model.Post.Title;
 }
 
-@*<h2>@Model.Post.Title</h2>*@
 
-<p>
-    @Html.Raw(Model.Html)
-</p>
+<div class="post">
+    <div class="date">@Model.Post.CreateDate</div>
+    <div class="tags">@Model.Post.Tags.Aggregate("", (acc, o) => acc + " " + o)</div>
+    <div style="clear: both"></div>
+    <div>
+        @Html.Raw(@Model.Html)
+    </div>
+</div>

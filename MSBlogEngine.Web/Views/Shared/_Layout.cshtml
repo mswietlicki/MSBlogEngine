@@ -10,29 +10,30 @@
     <link href="~/Content/Site.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <header>
-        <nav id="nav">
-            <ul>
-                <li class="big">@Html.ActionLink("Mateusz Świetlicki", "Index", "Post")</li>
-                <li>@Html.ActionLink("Projekty", "Index", "Post")</li>
-                <li>@Html.ActionLink("O mnie", "Index", "Post")</li>
-            </ul>
-        </nav>
+    <header id="top-bar">
+        <div class="titleImg">
+            <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" /></div>
+        <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Index", "Post")</div>
+        <div class="subtitle">Blog programistyczny .NET</div>
+        <ul class="nav">
+            <li>@Html.ActionLink("Blog", "Index", "Post")</li>
+            <li>@Html.ActionLink("Projekty", "Index", "Post")</li>
+            <li>@Html.ActionLink("O mnie", "Index", "Post")</li>
+        </ul>
     </header>
-    <div id="body">
-        <section id="mainBody" >
+    <div id="content">
+        <div id="emptyTopBox"></div>
+        <section id="mainBody">
             @RenderBody()
         </section>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                @*<p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>*@
-            </div>
-        </div>
-    </footer>
 
-    @*        @Scripts.Render("~/bundles/jquery")*@
+        @*        @Scripts.Render("~/bundles/jquery")*@
+
+    </div>
+    <footer id="footer">
+        Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a>
+    </footer>
+    <div id="emptyBottomBox"></div>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,30 +1,20 @@
 ﻿@using System.Globalization
-@model System.Collections.Generic.IEnumerable<MSBlogEngine.Models.BlogPost>
+@model System.Collections.Generic.IEnumerable<MSBlogEngine.Web.Models.PostModel>
 
 @{
     ViewBag.Title = "Mateusz Świetlicki";
 }
 
-<div class="mainList">
-<ul >
+<div id="mainList">
     @foreach (var post in Model)
     {
-        <li>
-            <div class="menuTitle">@Html.ActionLink(post.Title, "Get", "Post", new { Id = post.Id }, null)</div>
-            <div style="float:none">
-                <div class="menuTime">
-                    @post.CreateDate.ToString(CultureInfo.InvariantCulture)
-                </div>
-                <ul class="tagList">
-                    @foreach (var tag in post.Tags)
-                    {
-                        <li>@tag</li>
-                    }
-                </ul>
-                <div style="clear: both"></div>
+        <div class="post">
+            <div class="date">@post.Post.CreateDate</div>
+            <div class="tags">@post.Post.Tags.Aggregate("", (acc, o) => acc + " " + o)</div>
+            <div style="clear: both"></div>
+            <div>
+                @Html.Raw(@post.Html)
             </div>
-
-        </li>
+        </div>
     }
-</ul>
 </div>
