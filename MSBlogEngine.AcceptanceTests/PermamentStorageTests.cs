@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using MSBlogEngine.Configuration;
 using MSBlogEngine.Controllers;
 using MSBlogEngine.Models;
 using MSBlogEngine.Providers;
@@ -57,7 +58,8 @@ namespace MSBlogEngine.AcceptanceTests
             var post = GetExampleBlogPost();
 
             var container = new Container();
-            container.Register<IFileProvider>(() => new LocalFileProvider());
+            container.Register<IBlogConfiguration>(() => new ConfigFileReader().GetBlogConfiguration());
+            container.Register<IFileProvider>(container.GetInstance<LocalFileProvider>);
             container.Register<IBlogProvider>(container.GetInstance<XMLBlogProvider>);
             var blogController = container.GetInstance<BlogController>();
 

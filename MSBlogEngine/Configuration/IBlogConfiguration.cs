@@ -3,71 +3,40 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using MSBlogEngine.Common;
 
 namespace MSBlogEngine.Configuration
 {
-    public interface IBlogConfiguration : IConfiguration
+    public interface IBlogConfiguration
     {
         string BlogPostsDirectory { get; set; }
     }
 
     public class BlogConfiguration : IBlogConfiguration
     {
-        public BlogConfiguration(ConfigFileReader config)
-        {
-            
-        }
-        public string BlogPostsDirectory
-        {
-            get { return GetValue(() => BlogPostsDirectory).ToString(); }
-            set
-            {
-                SetValue(() => BlogPostsDirectory, value);
-            }
-        }
-
-        private object GetValue<TProperty>(Expression<Func<TProperty>> projection)
-        {
-            var propertyName = ((MemberExpression)projection.Body).Member.Name;
-            return GetValue(propertyName);
-        }
-
-        private void SetValue<TProperty>(Expression<Func<TProperty>> projection, object value)
-        {
-            var propertyName = ((MemberExpression)projection.Body).Member.Name;
-            SetValue(propertyName, value);
-        }
-
-        public object GetValue(string name)
-        {
-            return "";
-        }
-
-        public void SetValue(string name, object value)
-        {
-            
-        }
+        public string BlogPostsDirectory { get; set; }
     }
 
     public class ConfigFileReader
     {
-        public ConfigFileReader()
+        public BlogConfiguration GetBlogConfiguration()
         {
-            
+            return GetBlogConfiguration(Assembly.GetExecutingAssembly().GetDirectory() + @"\Configuration\Blog.config");
         }
 
-        public InfoliniaConfiguration GetConfiguration(string path)
+        public BlogConfiguration GetBlogConfiguration(string path)
         {
             FileStream fs = null;
-            fs = new FileStream(FileName, FileMode.Open);
+            fs = new FileStream(path, FileMode.Open);
 
             try
             {
-                XmlSerializer s = new XmlSerializer(typeof(InfoliniaConfiguration));
-                return s.Deserialize(fs) as InfoliniaConfiguration;
+                var s = new XmlSerializer(typeof(BlogConfiguration));
+                return s.Deserialize(fs) as BlogConfiguration;
             }
             finally
             {

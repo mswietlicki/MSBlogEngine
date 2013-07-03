@@ -2,11 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MSBlogEngine.Configuration;
 
 namespace MSBlogEngine.Providers.FileStorage
 {
     public class LocalFileProvider : IFileProvider
     {
+        private readonly IBlogConfiguration _configuration;
+
+        public LocalFileProvider(IBlogConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public Stream GetFileStream(string path)
         {
@@ -16,11 +23,11 @@ namespace MSBlogEngine.Providers.FileStorage
             return new FileStream(path, FileMode.OpenOrCreate);
         }
 
-        public IEnumerable<string> GetFilesPaths(Func<string, bool> filter)
+        public IEnumerable<string> GetFilesPaths(Func<string, bool> filter, bool recursive = false)
         {
-            var currentDirectory = Directory.GetCurrentDirectory();
+            var currentDirectory = _configuration.BlogPostsDirectory;
             var directoryInfo = new DirectoryInfo(currentDirectory);
-            var files = directoryInfo.GetFiles("*", SearchOption.AllDirectories).Select(f => f.FullName).ToList();
+            var files = directoryInfo.GetFiles("*", recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly).Select(f => f.FullName).ToList();
             return files.Where(filter);
         }
 

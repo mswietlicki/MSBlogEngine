@@ -65,6 +65,10 @@
     <Compile Include="XMLBlogStorageTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\MSBlogEngine\Configuration\Blog.config">
+      <Link>Files\Blog.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

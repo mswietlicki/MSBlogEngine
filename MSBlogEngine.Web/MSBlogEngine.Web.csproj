@@ -173,10 +173,10 @@
     <Content Include="Views\Post\Posts.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Posts\testowa_strona.md" />
+    <Content Include="Views\Shared\DisplayTemplates\PostModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\DisplayTemplates\PostModel.cshtml" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

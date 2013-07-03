@@ -7,7 +7,7 @@ namespace MSBlogEngine.Providers.FileStorage
     public interface IFileProvider
     {
         Stream GetFileStream(string path);
-        IEnumerable<string> GetFilesPaths(Func<string, bool> filter);
+        IEnumerable<string> GetFilesPaths(Func<string, bool> filter, bool recursive = false);
         string GetFileString(string path);
     }
 }

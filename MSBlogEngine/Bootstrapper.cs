@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 using System.Web.Http;
+using MSBlogEngine.Configuration;
 using MSBlogEngine.Providers;
 using MSBlogEngine.Providers.FileStorage;
 using MSBlogEngine.Render;
@@ -29,7 +30,8 @@ namespace MSBlogEngine
             var container = new Container();
 
             container.RegisterSingle(() => this);
-            container.RegisterSingle<IFileProvider>(() => new LocalFileProvider());
+            container.Register<IBlogConfiguration>(() => new ConfigFileReader().GetBlogConfiguration());
+            container.RegisterSingle<IFileProvider>(container.GetInstance<LocalFileProvider>);
             container.Register<IBlogProvider>(container.GetInstance<MarkdownBlogProvider>);
             container.Register<IPostRenderEngine>(container.GetInstance<HtmlPostRenderEngine>);
 

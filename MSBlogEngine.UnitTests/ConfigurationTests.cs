@@ -24,7 +24,23 @@ namespace MSBlogEngine.UnitTests
             //ACT
             var dir = configuration.BlogPostsDirectory;
             //VERIFY
+            
+        }
 
+        [Fact]
+        public void GetPostsDirectoryFromFile()
+        {
+            //SETUP
+            var container = new Container();
+
+            container.Register<IBlogConfiguration>(() => new ConfigFileReader().GetBlogConfiguration("Files\\Blog.config"));
+
+            var configuration = container.GetInstance<IBlogConfiguration>();
+
+            //ACT
+            var dir = configuration.BlogPostsDirectory;
+            //VERIFY
+            Assert.Equal("C:\\Blog", dir);
         }
     }
 }

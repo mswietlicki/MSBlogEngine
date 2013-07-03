@@ -40,7 +40,7 @@ namespace MSBlogEngine.Providers
 
         public IEnumerable<BlogPost> GetPosts()
         {
-            return _fileProvider.GetFilesPaths(f => f.Contains("Posts\\")).Select(GetPostByPath);
+            return _fileProvider.GetFilesPaths(f => f.Contains(".md")).Select(GetPostByPath);
         }
 
         public void UpdatePost(string id, BlogPost post)

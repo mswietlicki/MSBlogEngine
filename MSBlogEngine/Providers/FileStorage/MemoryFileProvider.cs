@@ -23,7 +23,7 @@ namespace MSBlogEngine.Providers.FileStorage
             return stream;
         }
 
-        public IEnumerable<string> GetFilesPaths(Func<string, bool> filter)
+        public IEnumerable<string> GetFilesPaths(Func<string, bool> filter, bool recursive = false)
         {
             return Files.Keys.Where(filter);
         }
