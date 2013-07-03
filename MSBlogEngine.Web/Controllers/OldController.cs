@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MSBlogEngine.Configuration;
 
 namespace MSBlogEngine.Web.Controllers
 {
     public class OldController : Controller
     {
-        private Dictionary<string, string> _nameMap = new Dictionary<string, string>
+        private readonly IBlogConfiguration _configuration;
+
+        public OldController(IBlogConfiguration configuration)
         {
-            {"Exchange-2010-The-WinRM-client-received-an-HTTP-server-error-status-(500).aspx", "NDC 2012 – Moje oceny"}
-        };
+            _configuration = configuration;
+        }
 
         public ActionResult Translate(string name)
         {
-            return RedirectToAction("Post", "Post", new { id = _nameMap[name] });
+            var map = _configuration.OldUrlMap.FirstOrDefault(m => m.Key == name);
+
+            if (map == null) return RedirectToAction("Posts", "Post");
+
+            return RedirectToAction("Post", "Post", new { id = map.Value });
         }
 
     }

@@ -159,6 +159,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSBlogEngine.Common\MSBlogEngine.Common.csproj">
+      <Project>{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}</Project>
+      <Name>MSBlogEngine.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSBlogEngine\MSBlogEngine.csproj">
       <Project>{475064CF-A687-42A1-8572-FFE316706B64}</Project>
       <Name>MSBlogEngine</Name>

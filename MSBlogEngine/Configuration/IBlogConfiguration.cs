@@ -14,11 +14,15 @@ namespace MSBlogEngine.Configuration
     public interface IBlogConfiguration
     {
         string BlogPostsDirectory { get; set; }
+
+        StringPair[] OldUrlMap { get; set; }
     }
 
     public class BlogConfiguration : IBlogConfiguration
     {
         public string BlogPostsDirectory { get; set; }
+
+        public StringPair[] OldUrlMap { get; set; }
     }
 
     public class ConfigFileReader
