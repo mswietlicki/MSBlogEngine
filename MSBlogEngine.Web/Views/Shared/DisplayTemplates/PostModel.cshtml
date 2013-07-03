@@ -1,4 +1,7 @@
 ﻿@model MSBlogEngine.Web.Models.PostModel
+@{
+    var url = Url.Action("Post", "Post", new { id = Model.Post.Id }, Request.Url.Scheme);
+}
 
 <div class="post">
     <div class="date">@Model.Post.CreateDate</div>
@@ -7,10 +10,21 @@
         {
             <a href="@Url.Action("Posts", "Post", new { tag })">@tag</a>
         }
-        
+
     </div>
     <div style="clear: both"></div>
     <div>
         @Html.Raw(@Model.Html)
+    </div>
+    <div class="fb-like" data-href="@url" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+    <div class="comments">
+        @if (ViewBag.ShowComments)
+        {
+            <div class="fb-comments" data-href="@url" data-width="800" data-num-posts="10"></div>
+        }
+        else
+        {
+            <a href="@url">Comments</a>
+        }
     </div>
 </div>

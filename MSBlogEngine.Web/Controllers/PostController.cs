@@ -27,6 +27,7 @@ namespace MSBlogEngine.Web.Controllers
         {
             var postModels = GetPostModels(tag);
 
+            ViewBag.ShowComments = false;
             return View(postModels);
         }
 
@@ -50,6 +51,7 @@ namespace MSBlogEngine.Web.Controllers
 
             var postModel = new PostModel(post, html);
 
+            ViewBag.ShowComments = true;
             return View(postModel);
         }
 

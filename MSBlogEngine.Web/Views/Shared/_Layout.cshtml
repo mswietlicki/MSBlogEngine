@@ -9,33 +9,46 @@
     <meta http-equiv="content-language" content="pl">
     <link href="~/Content/Site.css" media="all" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <header id="top-bar">
-        <div class="titleImg">
-            <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
+    <body>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=405859169532623";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>      
+
+        <header id="top-bar">
+            <div class="titleImg">
+                <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
+            </div>
+            <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Posts", "Post")</div>
+            <div class="subtitle">Blog programistyczny .NET</div>
+            <ul class="nav">
+                <li>@Html.ActionLink("Blog", "Posts", "Post")</li>
+                <li>@Html.ActionLink("Projekty", "Posts", "Post", new { tag = "projekty" }, null)</li>
+                <li>@Html.ActionLink("O mnie", "Post", "Post", new { id = "O mnie" }, null)</li>
+                <li>@Html.ActionLink("RSS", "RSS", "Post", new { tag = ViewBag.Tag }, null)</li>
+            </ul>
+        </header>
+        <div id="content">
+            <div id="emptyTopBox"></div>
+            <section id="mainBody">
+                @RenderBody()
+            </section>
+
+            @*@Scripts.Render("~/bundles/jquery")*@
+
         </div>
-        <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Posts", "Post")</div>
-        <div class="subtitle">Blog programistyczny .NET</div>
-        <ul class="nav">
-            <li>@Html.ActionLink("Blog", "Posts", "Post")</li>
-            <li>@Html.ActionLink("Projekty", "Posts", "Post", new { tag = "projekty" }, null)</li>
-            <li>@Html.ActionLink("O mnie", "Post", "Post", new { id = "O mnie" }, null)</li>
-            <li>@Html.ActionLink("RSS", "RSS", "Post", new { tag = ViewBag.Tag }, null)</li>
-        </ul>
-    </header>
-    <div id="content">
-        <div id="emptyTopBox"></div>
-        <section id="mainBody">
-            @RenderBody()
-        </section>
+        <footer id="footer">
+            Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a>
+        </footer>
+        <div id="emptyBottomBox"></div>
+        @RenderSection("scripts", required: false)
 
-        @*        @Scripts.Render("~/bundles/jquery")*@
+        <div id="fb-root"></div>
 
-    </div>
-    <footer id="footer">
-        Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a>
-    </footer>
-    <div id="emptyBottomBox"></div>
-    @RenderSection("scripts", required: false)
-</body>
+    </body>
 </html>
