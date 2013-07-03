@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="BlogControllerTests.cs" />
     <Compile Include="BlogPostUnitTests.cs" />
+    <Compile Include="ConfigurationTests.cs" />
     <Compile Include="MarkdownBlogProviderTests.cs" />
     <Compile Include="MarkdownRenderTests.cs" />
     <Compile Include="MarkdownSerializerTests.cs" />
