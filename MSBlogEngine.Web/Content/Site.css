@@ -61,16 +61,17 @@ body {
     float: left;
     margin-left: 10px;
     font-size: 2.4em;
+    color: rgb(102, 102, 102);
 }
 
     .title a {
-        color: #000000;
+        color: rgb(102, 102, 102);
         outline: none;
         text-decoration: none;
     }
 
         .title a:link, a:visited, a:active, a:hover {
-            color: #000000;
+            color: rgb(102, 102, 102);
         }
 
 .subtitle {
@@ -92,6 +93,14 @@ body {
         display: block;
         float: left;
     }
+
+    .nav li a {
+        color: rgb(102, 102, 102);
+    }
+    .nav li a:link, a:visited, a:active, a:hover{
+        color: rgb(102, 102, 102);
+    }
+
 
 .post {
     margin-top: 10px;
