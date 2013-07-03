@@ -15,8 +15,11 @@ namespace MSBlogEngine.Providers.FileStorage
             _configuration = configuration;
         }
 
-        public Stream GetFileStream(string path)
+        public Stream GetFileStream(string path, bool create = false)
         {
+            if(!create && !File.Exists(path))
+                throw new FileNotFoundException("Not exist", path);
+
             var directory = new DirectoryInfo(Path.GetDirectoryName(path));
             if (!directory.Exists) Directory.CreateDirectory(directory.FullName);
 

@@ -9,7 +9,7 @@ namespace MSBlogEngine.Providers.FileStorage
     {
         static readonly Dictionary<string, Stream> Files = new Dictionary<string, Stream>();
 
-        public Stream GetFileStream(string path)
+        public Stream GetFileStream(string path, bool create)
         {
             if (Files.ContainsKey(path))
             {

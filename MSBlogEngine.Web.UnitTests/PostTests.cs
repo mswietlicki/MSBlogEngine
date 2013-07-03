@@ -2,6 +2,7 @@
 using System.Text;
 using System.Web.Mvc;
 using MSBlogEngine.Common;
+using MSBlogEngine.Configuration;
 using MSBlogEngine.Providers;
 using MSBlogEngine.Providers.FileStorage;
 using MSBlogEngine.Render;
@@ -20,11 +21,12 @@ namespace MSBlogEngine.Web.UnitTests
         {
             //Setup
             var container = new Container();
+            container.Register<IBlogConfiguration>(() => new Mock<IBlogConfiguration>().Object);
             container.Register<IPostRenderEngine>(container.GetInstance<HtmlPostRenderEngine>);
             container.Register<IBlogProvider>(container.GetInstance<MarkdownBlogProvider>);
             var mockFileProvider = new Mock<IFileProvider>();
 
-            mockFileProvider.Setup(o => o.GetFileStream(It.IsAny<string>())).Returns(GetTestMarkdownPage().ToStream());
+            mockFileProvider.Setup(o => o.GetFileStream(It.IsAny<string>(), false)).Returns(GetTestMarkdownPage().ToStream());
             container.Register<IFileProvider>(() => mockFileProvider.Object);
             
             var controller = container.GetInstance<PostController>();

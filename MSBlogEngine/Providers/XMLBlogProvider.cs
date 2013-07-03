@@ -23,7 +23,7 @@ namespace MSBlogEngine.Providers
 
         private BlogPost GetPostByPath(string path)
         {
-            using (var stream = _fileProvider.GetFileStream(path))
+            using (var stream = _fileProvider.GetFileStream(path, false))
             {
                 return new XmlSerializer(typeof(BlogPost)).Deserialize(stream) as BlogPost;
             }
@@ -31,7 +31,7 @@ namespace MSBlogEngine.Providers
 
         public string AddPost(BlogPost post)
         {
-            using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", post.Id)))
+            using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", post.Id), false))
             {
                 new XmlSerializer(typeof(BlogPost)).Serialize(stream, post);
                 return post.Id;
@@ -45,7 +45,7 @@ namespace MSBlogEngine.Providers
 
         public void UpdatePost(string id, BlogPost post)
         {
-            using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", id)))
+            using (var stream = _fileProvider.GetFileStream(string.Format("Posts\\{0}.xml", id), false))
             {
                 new XmlSerializer(typeof(BlogPost)).Serialize(stream, post);
             }

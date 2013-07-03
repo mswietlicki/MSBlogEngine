@@ -20,14 +20,14 @@ namespace MSBlogEngine.UnitTests
         {
             var container = new Container();
             var mock = new Mock<IFileProvider>();
-            mock.Setup(o => o.GetFileStream(It.IsAny<string>())).Returns(new MemoryStream());
+            mock.Setup(o => o.GetFileStream(It.IsAny<string>(), false)).Returns(new MemoryStream());
             container.Register<IFileProvider>(() => mock.Object);
 
             var storage = container.GetInstance<XMLBlogProvider>();
 
             storage.UpdatePost("", new BlogPost());
 
-            mock.Verify(o => o.GetFileStream(It.IsAny<string>()), Times.Once());
+            mock.Verify(o => o.GetFileStream(It.IsAny<string>(), false), Times.Once());
         }
     }
 }

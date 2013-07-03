@@ -14,10 +14,18 @@ namespace MSBlogEngine.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "OldRouting",
+                url: "post/{y}/{m}/{d}/{name}",
+                defaults: new { controller = "Old", action = "Translate", name = "" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{action}/{id}",
                 defaults: new { controller = "Post", action = "Posts", id = UrlParameter.Optional }
             );
+
+
         }
     }
 }
