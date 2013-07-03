@@ -121,3 +121,12 @@ body {
         margin-left: 10px;
         color: #666666;
     }
+
+        .post .tags a {
+            margin-left: 5px;
+            color: #666666;
+        }
+
+        .post .tags a:link, a:visited, a:active, a:hover {
+            color: #666666;
+        }
