@@ -23,9 +23,6 @@ namespace MSBlogEngine.Web
 
         protected void Application_Start()
         {
-            string path = HttpContext.Current.Server.MapPath("~/App_Data");
-            Directory.SetCurrentDirectory(path);
-
             Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             Container.RegisterMvcAttributeFilterProvider();
             Container.Verify();

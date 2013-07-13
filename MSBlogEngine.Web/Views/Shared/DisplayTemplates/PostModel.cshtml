@@ -4,27 +4,36 @@
 }
 
 <div class="post">
-    <div class="date">@Model.Post.CreateDate</div>
-    <div class="tags">
-        @foreach (var tag in Model.Post.Tags)
-        {
-            <a href="@Url.Action("Posts", "Post", new { tag })">@tag</a>
-        }
+    <div class="postHead">
+        <div class="date">@Model.Post.CreateDate</div>
+        <div class="tags">
+            @foreach (var tag in Model.Post.Tags)
+            {
+                <a href="@Url.Action("Posts", "Post", new { tag })">@tag</a>
+            }
 
+        </div>
+        <div style="clear: both"></div>
+        <div class="postTitle">
+            <a href="@url">
+                <h2>@Model.Post.Title</h2>
+            </a>
+        </div>
     </div>
-    <div style="clear: both"></div>
-    <div>
-        @Html.Raw(@Model.Html)
-    </div>
-    <div class="fb-like" data-href="@url" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-    <div class="comments">
-        @if (ViewBag.ShowComments)
-        {
-            <div class="fb-comments" data-href="@url" data-width="800" data-num-posts="10"></div>
-        }
-        else
-        {
-            <a href="@url">Comments</a>
-        }
+    <div class="postContent">
+        <div>
+            @Html.Raw(@Model.Html)
+        </div>
+        <div class="fb-like" data-href="@url" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+        <div class="comments">
+            @if (ViewBag.ShowComments)
+            {
+                <div class="fb-comments" data-href="@url" data-width="800" data-num-posts="10"></div>
+            }
+            else
+            {
+                <a href="@url">Comments</a>
+            }
+        </div>
     </div>
 </div>

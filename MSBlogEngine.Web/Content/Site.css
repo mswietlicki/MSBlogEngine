@@ -17,7 +17,6 @@ body {
     margin-right: 20px;
 }
 
-
 #emptyTopBox {
     height: 60px;
 }
@@ -31,11 +30,15 @@ body {
     top: 0px;
     right: 20px;
     left: 20px;
-    background-color: white;
+    background-color: rgb(201, 81, 0);
+    color: white;
     display: block;
     height: 60px;
     line-height: 60px;
-    border-bottom: solid 1px #eeeeee;
+    /*border-left: solid 1px rgb(100, 100, 100);
+    border-right: solid 1px rgb(100, 100, 100);
+    border-bottom: solid 1px rgb(100, 100, 100);*/
+    z-index: 9999;
 }
 
 #footer {
@@ -46,8 +49,10 @@ body {
     height: 40px;
     line-height: 40px;
     display: block;
-    background-color: white;
+    background-color: rgb(245, 245, 245);
     border-top: solid 1px #cccccc;
+    /*border-left: solid 1px #cccccc;
+    border-right: solid 1px #cccccc;*/
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -55,23 +60,27 @@ body {
 .titleImg {
     float: left;
     margin-top: 3px;
+    margin-left: 3px;
 }
 
 .title {
     float: left;
     margin-left: 10px;
     font-size: 2.4em;
-    color: rgb(102, 102, 102);
+    color: white;
 }
 
     .title a {
-        color: rgb(102, 102, 102);
+        color: white;
         outline: none;
         text-decoration: none;
     }
 
-        .title a:link, a:visited, a:active, a:hover {
-            color: rgb(102, 102, 102);
+        .title a:link,
+        .title a:visited,
+        .title a:active,
+        .title a:hover {
+            color: white;
         }
 
 .subtitle {
@@ -94,13 +103,25 @@ body {
         float: left;
     }
 
-    .nav li a {
-        color: rgb(102, 102, 102);
-    }
-    .nav li a:link, a:visited, a:active, a:hover{
-        color: rgb(102, 102, 102);
-    }
+        .nav li a {
+            color: white;
+        }
 
+            .nav li a:link,
+            .nav li a:visited,
+            .nav li a:active,
+            .nav li a:hover {
+                color: white;
+            }
+
+
+pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
 
 .post {
     margin-top: 10px;
@@ -109,7 +130,6 @@ body {
     border-left: solid 1px #cccccc;
     border-right: solid 1px #cccccc;
     border-bottom: solid 1px #cccccc;
-    padding: 20px;
 }
 
     .post img {
@@ -122,24 +142,45 @@ body {
 
     .post .date {
         float: left;
-        color: #666666;
+        color: #1e1e1e;
     }
 
     .post .tags {
         float: left;
         margin-left: 10px;
-        color: #666666;
+        color: #1e1e1e;
     }
 
         .post .tags a {
             margin-left: 5px;
-            color: #666666;
+            color: #1e1e1e;
         }
 
-        .post .tags a:link, a:visited, a:active, a:hover {
-            color: #666666;
-        }
+            .post .tags a:link,
+            .post .tags a:visited,
+            .post .tags a:active,
+            .post .tags a:hover {
+            }
 
-/*.fb-like {
-    float: right;
-}*/
+.postHead {
+    background-color: rgb(240, 240, 240);
+    padding: 10px 20px 0px 20px;
+}
+
+.postTitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    .postTitle h2 {
+        margin: 0;
+    }
+
+    .postTitle a {
+        text-decoration: none;
+        color: black;
+    }
+
+.postContent {
+    padding: 0px 20px 10px 20px;
+}
