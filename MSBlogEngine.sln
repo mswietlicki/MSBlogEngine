@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.20617.1 PREVIEW
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBlogEngine.AcceptanceTests", "MSBlogEngine.AcceptanceTests\MSBlogEngine.AcceptanceTests.csproj", "{77330A8D-760E-413D-BCC8-E76D07876A00}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{32A34CDE-1DB3-452D-B7AA-B9694F8949A1}"
@@ -22,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBlogEngine.Web.UnitTests", "MSBlogEngine.Web.UnitTests\MSBlogEngine.Web.UnitTests.csproj", "{EC36A038-EEAA-4159-AC16-22A08945AFEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBlogEngine.Common", "MSBlogEngine.Common\MSBlogEngine.Common.csproj", "{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBlogEngine.NameFixer", "MSBlogEngine.NameFixer\MSBlogEngine.NameFixer.csproj", "{29705D8E-E429-4529-A24B-51057BF09704}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +57,10 @@ Global
 		{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29705D8E-E429-4529-A24B-51057BF09704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29705D8E-E429-4529-A24B-51057BF09704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29705D8E-E429-4529-A24B-51057BF09704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29705D8E-E429-4529-A24B-51057BF09704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
