@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
@@ -59,17 +60,32 @@ namespace MSBlogEngine.Web.Controllers
         {
             var posts = GetPostModels(tag);
 
-            var postItems = posts.Select(p =>
-                    new SyndicationItem(p.Post.Title, p.Html, new Uri(Url.Action("Post", "Post", new { id = p.Post.Id }), UriKind.Relative))
-                );
+            var postItems = posts.Select(CreateSyndicationItem);
 
-            var feed = new SyndicationFeed("Mateusz Świetlicki: Blog programisty", "Blog techniczno informatyczny prowadzony przez programistę .NET Mateusza Świetlickiego", new Uri(Url.Action("Posts"), UriKind.Relative), postItems)
+            var feed = new SyndicationFeed("Mateusz Świetlicki: Blog programisty", "Blog techniczno informatyczny prowadzony przez programistę .NET Mateusza Świetlickiego",
+                new Uri(Url.Action("Posts", "Post", null, Request.Url.Scheme)), postItems)
             {
                 Copyright = new TextSyndicationContent("Mateusz Świetlicki 2013"),
                 Language = "pl-PL"
             };
 
             return new FeedResult(new Rss20FeedFormatter(feed));
+        }
+
+        private SyndicationItem CreateSyndicationItem(PostModel p)
+        {
+            var item = new SyndicationItem(p.Post.Title, p.Html, new Uri(Url.Action("Post", "Post", new { id = p.Post.Id }, Request.Url.Scheme)))
+                {
+                    PublishDate = p.Post.CreateDate,
+                    Id = p.Post.Id
+                };
+
+            foreach (var tag in p.Post.Tags)
+            {
+                item.Categories.Add(new SyndicationCategory(tag));
+            }
+
+            return item;
         }
     }
 

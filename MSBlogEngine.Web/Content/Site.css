@@ -28,6 +28,7 @@ body {
 #top-bar {
     position: fixed;
     top: 0px;
+    min-width: 300px;
     right: 20px;
     left: 20px;
     background-color: rgb(201, 81, 0);
@@ -35,9 +36,6 @@ body {
     display: block;
     height: 60px;
     line-height: 60px;
-    /*border-left: solid 1px rgb(100, 100, 100);
-    border-right: solid 1px rgb(100, 100, 100);
-    border-bottom: solid 1px rgb(100, 100, 100);*/
     z-index: 9999;
 }
 
@@ -63,6 +61,13 @@ body {
     margin-left: 3px;
 }
 
+.titleContent {
+    position: fixed;
+    display: block;
+    left: 80px;
+    right: 20px;
+}
+
 .title {
     float: left;
     margin-left: 10px;
@@ -82,6 +87,27 @@ body {
         .title a:hover {
             color: white;
         }
+
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 1.6em;
+        float: none;
+    }
+
+    #top-bar {
+        line-height: 30px;
+    }
+
+    .nav {
+        float: none !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .subtitle {
+        display: none !important;
+    }
+}
 
 .subtitle {
     float: left;
@@ -116,6 +142,14 @@ body {
 
 
 pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+code {
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
     white-space: -pre-wrap; /* Opera 4-6 */
