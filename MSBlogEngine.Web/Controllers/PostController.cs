@@ -47,6 +47,8 @@ namespace MSBlogEngine.Web.Controllers
 
         public ActionResult Post(string id)
         {
+            if (id == null) return RedirectToAction("Posts");
+
             var post = _blogController.Get(id);
             var html = _renderEngine.Render(post);
 

@@ -25,5 +25,9 @@ namespace MSBlogEngine.Web.Controllers
             return RedirectToAction("Post", "Post", new { id = map.Value });
         }
 
+        public ActionResult Rss()
+        {
+            return RedirectToAction("Rss", "Post");
+        }
     }
 }

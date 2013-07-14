@@ -53,6 +53,7 @@ body {
     border-right: solid 1px #cccccc;*/
     padding-left: 10px;
     padding-right: 10px;
+    z-index: 9999;
 }
 
 .titleImg {
@@ -157,6 +158,12 @@ code {
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
+.leftImg {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
 .post {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -167,8 +174,13 @@ code {
 }
 
     .post img {
-        max-width: 400px;
+        max-width: 300px;
     }
+
+    .post img:hover {
+        max-width: 1024px;
+    }
+
 
     .post h1 {
         margin-top: 5px;

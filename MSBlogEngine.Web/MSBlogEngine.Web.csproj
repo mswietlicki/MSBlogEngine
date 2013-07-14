@@ -130,6 +130,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\RssLegacyHandler.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\OldController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Models\PostModel.cs" />

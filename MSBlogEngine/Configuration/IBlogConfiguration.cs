@@ -35,7 +35,7 @@ namespace MSBlogEngine.Configuration
         public BlogConfiguration GetBlogConfiguration(string path)
         {
             FileStream fs = null;
-            fs = new FileStream(path, FileMode.Open);
+            fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
             try
             {

@@ -29,12 +29,11 @@ namespace MSBlogEngine
         {
             var container = new Container();
 
-            container.RegisterSingle(() => this);
             container.Register<IBlogConfiguration>(() => new ConfigFileReader().GetBlogConfiguration());
             container.RegisterSingle<IFileProvider>(container.GetInstance<LocalFileProvider>);
             container.Register<IBlogProvider>(container.GetInstance<MarkdownBlogProvider>);
             container.Register<IPostRenderEngine>(container.GetInstance<HtmlPostRenderEngine>);
-
+            container.RegisterSingle(() => this);
 
             return container;
         }

@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Mateusz Świetlicki: @ViewBag.Title</title>
+    <meta name="description" content=">Mateusz Świetlicki Blog programisty">
     <link href="http://www.microsoft.com/visualstudio/_base_v2/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="keywords" content="Blog, Mateusz Świetlicki, C#, CSharp, Programing, Software development, Microsoft, visual studio, visual studio 2012, Git">
+    <meta name="keywords" content="Blog,Mateusz Świetlicki,Świetlicki,C#,CSharp,Programing,Software development,Microsoft,visual studio,visual studio 2012,Git">
     <meta http-equiv="content-language" content="pl">
     <link href="~/Content/Site.css" media="all" rel="stylesheet" type="text/css" />
+    <link type="application/rss+xml" rel="alternate" title="Mateusz Świetlicki Blog programisty" href="/rss">
 </head>
 <body>
     <script>
@@ -19,7 +21,18 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
+        ga('create', 'UA-41087495-1', 'swietlicki.net');
+        ga('send', 'pageview');
+
+    </script>
     <header id="top-bar">
         <div class="titleImg">
             <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
@@ -40,12 +53,9 @@
         <section id="mainBody">
             @RenderBody()
         </section>
-
-        @*@Scripts.Render("~/bundles/jquery")*@
-
     </div>
     <footer id="footer">
-        Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a>
+        <div>Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a></div>
     </footer>
     <div id="emptyBottomBox"></div>
     @RenderSection("scripts", required: false)
