@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MSBlogEngine.Git.Service.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GitDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Git</Value>
+    </Setting>
+    <Setting Name="Pause" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:01:00</Value>
+    </Setting>
+    <Setting Name="Repository" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Blog</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -143,6 +143,14 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="..\MSBlogEngine.Git.Service\bin\Debug\MSBlogEngine.Git.dll">
+      <Link>Service\MSBlogEngine.Git.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\MSBlogEngine.Git.Service\bin\Debug\MSBlogEngine.Git.Service.exe">
+      <Link>Service\MSBlogEngine.Git.Service.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\ja.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
@@ -193,6 +201,10 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\MSBlogEngine.Git.Service\bin\Debug\MSBlogEngine.Git.Service.exe.config">
+      <Link>Service\MSBlogEngine.Git.Service.exe.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
