@@ -21,16 +21,18 @@
         <div class="titleImg">
             <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
         </div>
-        <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Posts", "Post")</div>
-        <div class="subtitle">Blog programistyczny .NET</div>
-        <nav class="nav">
-            <ul>
-                <li>@Html.ActionLink("Blog", "Posts", "Post")</li>
-                <li>@Html.ActionLink("Projekty", "Posts", "Post", new { tag = "projekty" }, null)</li>
-                <li>@Html.ActionLink("O mnie", "Post", "Post", new { id = "o-mnie" }, new { rel = "author" })</li>
-                <li>@Html.ActionLink("RSS", "RSS", "Post", new { tag = ViewBag.Tag }, null)</li>
-            </ul>
-        </nav>
+        <div class="titleContent">
+            <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Posts", "Post")</div>
+            <div class="subtitle">Blog programistyczny .NET</div>
+            <nav>
+                <ul>
+                    <li>@Html.ActionLink("Blog", "Posts", "Post")</li>
+                    <li>@Html.ActionLink("Projekty", "Posts", "Post", new { tag = "projekty" }, null)</li>
+                    <li>@Html.ActionLink("O mnie", "Post", "Post", new { id = "o-mnie" }, new { rel = "author" })</li>
+                    <li>@Html.ActionLink("RSS", "RSS", "Post", new { tag = ViewBag.Tag }, null)</li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <div id="emptyTopBox"></div>
