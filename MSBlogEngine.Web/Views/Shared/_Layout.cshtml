@@ -1,43 +1,43 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="utf-8" />
     <title>Mateusz Świetlicki: @ViewBag.Title</title>
-    <meta name="description" content=">Mateusz Świetlicki Blog programisty">
+    <meta name="description" content="Mateusz Świetlicki Blog programisty">
+    <meta name="author" content="Mateusz Świetlicki">
     <link href="http://www.microsoft.com/visualstudio/_base_v2/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="keywords" content="Blog,Mateusz Świetlicki,Świetlicki,C#,CSharp,Programing,Software development,Microsoft,visual studio,visual studio 2012,Git">
-    <meta http-equiv="content-language" content="pl">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Blog, Mateusz Świetlicki, Świetlicki, C#, CSharp, Programing, Software development, Microsoft, visual studio, visual studio 2012, Git">
     <link href="~/Content/Site.css" media="all" rel="stylesheet" type="text/css" />
     <link type="application/rss+xml" rel="alternate" title="Mateusz Świetlicki Blog programisty" href="/rss">
-    
+    <link rel="author" href="//plus.google.com/114424783196736458698/">
+
     <script src="~/Scripts/analytics.js" type="text/javascript"></script>
 </head>
 <body>
     <script src="~/Scripts/facebookInit.js" type="text/javascript"></script>
-    
-    <header id="top-bar">
+
+    <header>
         <div class="titleImg">
             <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
         </div>
-        <div class="titleContent">
-            <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Posts", "Post")</div>
-            <div class="subtitle">Blog programistyczny .NET</div>
-            <ul class="nav">
+        <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Posts", "Post")</div>
+        <div class="subtitle">Blog programistyczny .NET</div>
+        <nav class="nav">
+            <ul>
                 <li>@Html.ActionLink("Blog", "Posts", "Post")</li>
                 <li>@Html.ActionLink("Projekty", "Posts", "Post", new { tag = "projekty" }, null)</li>
-                <li>@Html.ActionLink("O mnie", "Post", "Post", new { id = "o-mnie" }, null)</li>
+                <li>@Html.ActionLink("O mnie", "Post", "Post", new { id = "o-mnie" }, new { rel = "author" })</li>
                 <li>@Html.ActionLink("RSS", "RSS", "Post", new { tag = ViewBag.Tag }, null)</li>
             </ul>
-        </div>
+        </nav>
     </header>
-    <div id="content">
-        <div id="emptyTopBox"></div>
-        <section id="mainBody">
-            @RenderBody()
-        </section>
-    </div>
-    <footer id="footer">
+
+    <div id="emptyTopBox"></div>
+    <section id="content">
+        @RenderBody()
+    </section>
+    <footer>
         <div>Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a></div>
     </footer>
     <div id="emptyBottomBox"></div>

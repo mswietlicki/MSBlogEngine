@@ -25,7 +25,7 @@ body {
     height: 40px;
 }
 
-#top-bar {
+header {
     position: fixed;
     top: 0px;
     min-width: 300px;
@@ -39,7 +39,7 @@ body {
     z-index: 9999;
 }
 
-#footer {
+footer {
     position: fixed;
     bottom: 0px;
     right: 20px;
@@ -49,11 +49,42 @@ body {
     display: block;
     background-color: rgb(245, 245, 245);
     border-top: solid 1px #cccccc;
-    /*border-left: solid 1px #cccccc;
-    border-right: solid 1px #cccccc;*/
     padding-left: 10px;
     padding-right: 10px;
     z-index: 9999;
+}
+
+@media screen and (max-width: 640px) {
+    #content {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+
+    header {
+        left: 0px;
+        right: 0px;
+    }
+
+    footer {
+        left: 0px;
+        right: 0px;
+    }
+}
+
+@media screen and (max-height: 480px) {
+    footer {
+        position: relative !important;
+        left: 0px;
+        right: 0px;
+    }
+
+    #emptyBottomBox {
+        display: none;
+    }
+
+    header {
+        position: absolute !important;
+    }
 }
 
 .titleImg {
@@ -63,7 +94,7 @@ body {
 }
 
 .titleContent {
-    position: fixed;
+    float: left;
     display: block;
     left: 80px;
     right: 20px;
@@ -89,17 +120,55 @@ body {
             color: white;
         }
 
+.subtitle {
+    float: left;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+nav {
+    float: right;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+    nav ul {
+        float: right;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav li {
+        margin-left: 10px;
+        margin-right: 10px;
+        display: block;
+        float: left;
+    }
+
+        nav li a {
+            color: white;
+        }
+
+            nav li a:link,
+            nav li a:visited,
+            nav li a:active,
+            nav li a:hover {
+                color: white;
+            }
+
 @media screen and (max-width: 600px) {
     .title {
         font-size: 1.6em;
         float: none;
     }
 
-    #top-bar {
+    header {
         line-height: 30px;
     }
 
-    .nav {
+    nav {
         float: none !important;
     }
 }
@@ -109,38 +178,6 @@ body {
         display: none !important;
     }
 }
-
-.subtitle {
-    float: left;
-    margin-top: 6px;
-    margin-left: 10px;
-}
-
-.nav {
-    float: right;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-}
-
-    .nav li {
-        margin-left: 10px;
-        margin-right: 10px;
-        display: block;
-        float: left;
-    }
-
-        .nav li a {
-            color: white;
-        }
-
-            .nav li a:link,
-            .nav li a:visited,
-            .nav li a:active,
-            .nav li a:hover {
-                color: white;
-            }
-
 
 pre {
     white-space: pre-wrap; /* css-3 */
@@ -158,13 +195,18 @@ code {
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
+figure {
+    margin: 0;
+    margin-left: 20px;
+}
+
 .leftImg {
     float: left;
     margin-right: 10px;
     margin-bottom: 10px;
 }
 
-.post {
+article {
     margin-top: 10px;
     margin-bottom: 10px;
     border-top: solid 1px #eeeeee;
@@ -173,40 +215,59 @@ code {
     border-bottom: solid 1px #cccccc;
 }
 
-    .post img {
+    article img {
+        max-width: 400px;
+    }
+
+        article img:hover {
+            max-width: 1000px;
+        }
+
+@media screen and (max-width: 700px) {
+    article img {
         max-width: 300px;
     }
 
-    .post img:hover {
-        max-width: 1024px;
-    }
-
-
-    .post h1 {
-        margin-top: 5px;
-    }
-
-    .post .date {
-        float: left;
-        color: #1e1e1e;
-    }
-
-    .post .tags {
-        float: left;
-        margin-left: 10px;
-        color: #1e1e1e;
-    }
-
-        .post .tags a {
-            margin-left: 5px;
-            color: #1e1e1e;
+        article img:hover {
+            max-width: 540px;
         }
+}
 
-            .post .tags a:link,
-            .post .tags a:visited,
-            .post .tags a:active,
-            .post .tags a:hover {
-            }
+@media screen and (max-width: 480px) {
+    article img {
+        max-width: 300px;
+    }
+
+        article img:hover {
+            max-width: 300px;
+        }
+}
+
+article h1 {
+    margin-top: 5px;
+}
+
+article .date {
+    float: left;
+    color: #1e1e1e;
+}
+
+article .tags {
+    float: left;
+    margin-left: 10px;
+    color: #1e1e1e;
+}
+
+    article .tags a {
+        margin-left: 5px;
+        color: #1e1e1e;
+    }
+
+        article .tags a:link,
+        article .tags a:visited,
+        article .tags a:active,
+        article .tags a:hover {
+        }
 
 .postHead {
     background-color: rgb(240, 240, 240);
@@ -214,6 +275,7 @@ code {
 }
 
 .postTitle {
+    float: left;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -229,4 +291,8 @@ code {
 
 .postContent {
     padding: 0px 20px 10px 20px;
+}
+
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
+    display: none !important;
 }
