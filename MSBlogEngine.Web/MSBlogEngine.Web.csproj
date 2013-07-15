@@ -151,6 +151,9 @@
       <Link>Service\MSBlogEngine.Git.Service.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\dark-grey.png" />
+    <Content Include="Content\Images\dark-orange.png" />
+    <Content Include="Content\Images\grey.png" />
     <Content Include="Content\Images\ja.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />

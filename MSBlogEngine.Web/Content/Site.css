@@ -32,6 +32,8 @@ header {
     right: 20px;
     left: 20px;
     background-color: rgb(201, 81, 0);
+    background-image: url('/Content/Images/dark-orange.png');
+    background-repeat: repeat;
     color: white;
     display: block;
     height: 60px;
@@ -168,9 +170,9 @@ nav {
         float: none;
     }
 
-    nav ul {
-        float: none;
-    }
+        nav ul {
+            float: none;
+        }
 }
 
 @media screen and (max-width: 800px) {
@@ -213,6 +215,9 @@ article {
     border-left: solid 1px #cccccc;
     border-right: solid 1px #cccccc;
     border-bottom: solid 1px #cccccc;
+    
+    background-image: url('/Content/Images/grey.png');
+    background-repeat: repeat;
 }
 
     article img {
@@ -271,6 +276,8 @@ article .tags {
 
 .postHead {
     background-color: rgb(240, 240, 240);
+    background-image: url('/Content/Images/dark-grey.png');
+    background-repeat: repeat;
     padding: 10px 20px 0px 20px;
 }
 
@@ -291,6 +298,10 @@ article .tags {
 
 .postContent {
     padding: 0px 20px 10px 20px;
+}
+
+figure div {
+    background-color: transparent !important;
 }
 
 .fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
