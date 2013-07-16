@@ -2,40 +2,41 @@
 @{
     var url = Url.Action("Post", "Post", new { id = Model.Post.Id }, Request.Url.Scheme);
 }
-
-<article>
-    <div class="postHead">
-        <div class="date">@Model.Post.CreateDate</div>
-        <div class="tags">
-            @foreach (var tag in Model.Post.Tags)
-            {
-                <a rel="tag" title="Tag: @tag" href="@Url.Action("Posts", "Post", new { tag })">@tag</a>
-            }
+<section>
+    <article>
+        <div class="postHead">
+            <div class="date">@Model.Post.CreateDate</div>
+            <div class="tags">
+                @foreach (var tag in Model.Post.Tags)
+                {
+                    <a rel="tag" title="Tag: @tag" href="@Url.Action("Posts", "Post", new { tag })">@tag</a>
+                }
+            </div>
+            <div style="clear: both"></div>
+            <div class="postTitle">
+                <a href="@url">
+                    <h1>@Model.Post.Title</h1>
+                </a>
+            </div>
+            <div style="clear: both"></div>
         </div>
-        <div style="clear: both"></div>
-        <div class="postTitle">
-            <a href="@url">
-                <h2>@Model.Post.Title</h2>
-            </a>
+        <div class="postContent">
+            <div>
+                @Html.Raw(@Model.Html)
+            </div>
+            <div style="clear: both"></div>
+            @*<div><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=@url" rel="nofollow">Like</a></div>*@
+            <div class="fb-like" data-href="@url" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+            <div class="comments">
+                @if (ViewBag.ShowComments)
+                {
+                    <div class="fb-comments" data-href="@url"  data-num-posts="4"></div>
+                }
+                else
+                {
+                    <a title="Komentarze" href="@url">Komentarze</a>
+                }
+            </div>
         </div>
-        <div style="clear: both"></div>
-    </div>
-    <div class="postContent">
-        <div>
-            @Html.Raw(@Model.Html)
-        </div>
-        <div style="clear: both"></div>
-        @*<div><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=@url" rel="nofollow">Like</a></div>*@
-        <div class="fb-like" data-href="@url" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-        <div class="comments">
-            @if (ViewBag.ShowComments)
-            {
-                <div class="fb-comments" data-href="@url"  data-num-posts="4"></div>
-            }
-            else
-            {
-                <a title="Komentarze" href="@url">Komentarze</a>
-            }
-        </div>
-    </div>
-</article>
+    </article>
+</section>

@@ -15,6 +15,18 @@ namespace MSBlogEngine.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "FeedRouting",
+                url: "feed",
+                defaults: new { controller = "Post", action = "RSS" }
+            );
+
+            routes.MapRoute(
+                name: "BlogFeedRouting",
+                url: "blog/feed",
+                defaults: new { controller = "Post", action = "RSS" }
+            );
+
+            routes.MapRoute(
                 name: "OldRouting",
                 url: "post/{y}/{m}/{d}/{name}",
                 defaults: new { controller = "Old", action = "Translate", name = "" }
