@@ -22,14 +22,14 @@
             <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
         </div>
         <div class="titleContent">
-            <div class="title">@Html.ActionLink("Mateusz Świetlicki", "Posts", "Post")</div>
+            <div class="title"><a title="Mateusz Świetlicki Blog" href="@Url.Action("Posts", "Post")">Mateusz Świetlicki</a></div>
             <div class="subtitle">Blog programistyczny .NET</div>
             <nav>
                 <ul>
-                    <li>@Html.ActionLink("Blog", "Posts", "Post")</li>
-                    <li>@Html.ActionLink("Projekty", "Posts", "Post", new { tag = "projekty" }, null)</li>
-                    <li>@Html.ActionLink("O mnie", "Post", "Post", new { id = "o-mnie" }, new { rel = "author" })</li>
-                    <li>@Html.ActionLink("RSS", "RSS", "Post", new { tag = ViewBag.Tag }, null)</li>
+                    <li><a title="Blog" href="@Url.Action("Posts", "Post")">Blog</a></li>
+                    <li><a title="Projekty" href="@Url.Action("Posts", "Post", new { tag = "projekty" })">Projekty</a></li>
+                    <li><a title="O mnie" href="@Url.Action("Post", "Post", new { id = "o-mnie" })" rel = "author">O mnie</a></li>
+                    <li><a title="RSS" href="@Url.Action("RSS", "Post", new { tag = ViewBag.Tag })">RSS</a></li>
                 </ul>
             </nav>
         </div>

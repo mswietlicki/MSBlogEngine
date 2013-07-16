@@ -9,7 +9,7 @@
         <div class="tags">
             @foreach (var tag in Model.Post.Tags)
             {
-                <a rel="tag" href="@Url.Action("Posts", "Post", new { tag })">@tag</a>
+                <a rel="tag" title="Tag: @tag" href="@Url.Action("Posts", "Post", new { tag })">@tag</a>
             }
         </div>
         <div style="clear: both"></div>
@@ -34,7 +34,7 @@
             }
             else
             {
-                <a href="@url">Comments</a>
+                <a title="Komentarze" href="@url">Komentarze</a>
             }
         </div>
     </div>
