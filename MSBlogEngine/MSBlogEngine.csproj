@@ -69,6 +69,7 @@
     <Compile Include="Configuration\IBlogConfiguration.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Render\HtmlPostRenderEngine.cs" />
     <Compile Include="Render\IPostRenderEngine.cs" />
