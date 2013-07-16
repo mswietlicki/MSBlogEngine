@@ -16,11 +16,13 @@ namespace MSBlogEngine.Web.Controllers
     public class PostController : Controller
     {
         private readonly IPostRenderEngine _renderEngine;
+        private readonly BlogsController _blogsController;
         private readonly BlogController _blogController;
 
-        public PostController(IPostRenderEngine renderEngine, BlogController blogController)
+        public PostController(IPostRenderEngine renderEngine, BlogsController blogsController, BlogController blogController)
         {
             _renderEngine = renderEngine;
+            _blogsController = blogsController;
             _blogController = blogController;
         }
 
@@ -34,11 +36,9 @@ namespace MSBlogEngine.Web.Controllers
 
         private IEnumerable<PostModel> GetPostModels(string tag = "blog")
         {
-            var postModels = _blogController
-                .Get()
-                .Where(p =>
-                    string.IsNullOrWhiteSpace(tag) ||
-                    p.Tags.Any(t => t.Equals(tag, StringComparison.InvariantCultureIgnoreCase)))
+            if (string.IsNullOrWhiteSpace(tag)) tag = "blog";
+
+            var postModels = _blogsController.Get(tag)
                 .Select(post => new PostModel(post, _renderEngine.Render(post)));
 
             ViewBag.Tag = tag;

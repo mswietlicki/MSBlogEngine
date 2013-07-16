@@ -54,6 +54,8 @@ footer {
     padding-left: 10px;
     padding-right: 10px;
     z-index: 9999;
+    /*background-image: url('/Content/Images/grey.png');
+    background-repeat: repeat;*/
 }
 
 @media screen and (max-width: 640px) {
@@ -216,8 +218,8 @@ article {
     border-right: solid 1px #cccccc;
     border-bottom: solid 1px #cccccc;
     
-    background-image: url('/Content/Images/grey.png');
-    background-repeat: repeat;
+    /*background-image: url('/Content/Images/grey.png');
+    background-repeat: repeat;*/
 }
 
     article img {

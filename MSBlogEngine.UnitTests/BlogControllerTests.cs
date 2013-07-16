@@ -22,7 +22,7 @@ namespace MSBlogEngine.UnitTests
             var blogStorage = new Mock<IBlogProvider>();
             container.Register<IBlogProvider>(() => blogStorage.Object);
 
-            var controller = container.GetInstance<BlogController>();
+            var controller = container.GetInstance<BlogsController>();
             var posts = controller.Get();
 
             Assert.NotNull(posts);
@@ -63,7 +63,7 @@ namespace MSBlogEngine.UnitTests
             blogStorage.Setup(o => o.GetPost(id)).Returns(blogPost);
             container.Register<IBlogProvider>(() => blogStorage.Object);
 
-            var controller = container.GetInstance<BlogController>();
+            var controller = container.GetInstance<BlogsController>();
 
             //ACT
             var posts = controller.Get();
