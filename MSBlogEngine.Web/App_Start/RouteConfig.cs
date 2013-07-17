@@ -44,7 +44,11 @@ namespace MSBlogEngine.Web
                 defaults: new { controller = "Post", action = "Posts", id = UrlParameter.Optional }
             );
 
-
+            routes.MapRoute(
+                name: "404-PageNotFound",
+                url: "",
+                defaults: new { controller = "Post", action = "Post", id = "404" }
+            );
         }
     }
 }
