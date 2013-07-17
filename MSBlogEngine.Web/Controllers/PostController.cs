@@ -30,6 +30,7 @@ namespace MSBlogEngine.Web.Controllers
         {
             var postModels = GetPostModels(tag);
 
+            ViewBag.Keywords = postModels.SelectMany(p => p.Post.Tags).ToHashSet();
             ViewBag.ShowComments = false;
             return View(postModels);
         }
@@ -54,6 +55,7 @@ namespace MSBlogEngine.Web.Controllers
 
             var postModel = new PostModel(post, html);
 
+            ViewBag.Keywords = post.Tags.ToHashSet();
             ViewBag.ShowComments = true;
             return View(postModel);
         }

@@ -254,6 +254,10 @@ article h1 {
     font-size: 1.5em;
 }
 
+article h2 {
+    font-size: 1.2em;
+}
+
 article .date {
     float: left;
     color: #1e1e1e;

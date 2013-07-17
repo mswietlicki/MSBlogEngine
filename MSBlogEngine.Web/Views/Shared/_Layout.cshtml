@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var keyHashset = ViewBag.Keywords as HashSet<string> ?? new HashSet<string>();
+    keyHashset.UnionWith(new[] { "Mateusz Świetlicki", "Świetlicki"});
+    var keywords = keyHashset.Aggregate("", (acc, t) => acc + ", " + t).Substring(2);
+}
+
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="utf-8" />
@@ -7,7 +13,7 @@
     <meta name="author" content="Mateusz Świetlicki">
     <link href="http://www.microsoft.com/visualstudio/_base_v2/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Blog, Mateusz Świetlicki, Świetlicki, C#, CSharp, Programing, Software development, Microsoft, visual studio, visual studio 2012, Git">
+    <meta name="keywords" content="@keywords">
     <link href="~/Content/Site.css" media="all" rel="stylesheet" type="text/css" />
     <link type="application/rss+xml" rel="alternate" title="Mateusz Świetlicki Blog programisty" href="/rss">
     <link rel="author" href="//plus.google.com/114424783196736458698/">
@@ -23,7 +29,7 @@
         </div>
         <div class="titleContent">
             <div class="title"><a title="Mateusz Świetlicki Blog" href="@Url.Action("Posts", "Post")">Mateusz Świetlicki</a></div>
-            <div class="subtitle">Blog programistyczny .NET</div>
+            <div class="subtitle">Blog programistyczny</div>
             <nav>
                 <ul>
                     <li><a title="Blog" href="@Url.Action("Posts", "Post")">Blog</a></li>
