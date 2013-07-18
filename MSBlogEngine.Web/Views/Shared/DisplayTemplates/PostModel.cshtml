@@ -25,13 +25,9 @@
             @Html.Raw(@Model.Html)
         </div>
         <div style="clear: both"></div>
-        @*<div><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=@url" rel="nofollow">Like</a></div>*@
-        @*        <div class="fb-like" data-href="@url" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>*@
         <div class="comments">
             @if (ViewBag.ShowComments)
             {
-@*<div class="fb-comments" data-href="@url"  data-num-posts="4"></div>*@
-                
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                     
@@ -49,7 +45,7 @@
             }
             else
             {
-                <a title="Komentarze" href="@url">Komentarze</a>
+                <a title="Komentarze" href="@url#disqus_thread">Komentarze</a>
             }
         </div>
     </div>
