@@ -1,6 +1,6 @@
 ﻿@{
     var keyHashset = ViewBag.Keywords as HashSet<string> ?? new HashSet<string>();
-    keyHashset.UnionWith(new[] { "Mateusz Świetlicki", "Świetlicki"});
+    keyHashset.UnionWith(new[] { "Mateusz Świetlicki", "Świetlicki" });
     var keywords = keyHashset.Aggregate("", (acc, t) => acc + ", " + t).Substring(2);
 }
 
@@ -21,36 +21,34 @@
     <script src="~/Scripts/analytics.js" type="text/javascript"></script>
 </head>
 <body>
-    <script src="~/Scripts/facebookInit.js" type="text/javascript"></script>
 
-    <header>
-        <div class="titleImg">
-            <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
-        </div>
-        <div class="titleContent">
-            <div class="title"><a title="Mateusz Świetlicki Blog" href="@Url.Action("Posts", "Post")">Mateusz Świetlicki</a></div>
-            <div class="subtitle">Blog programistyczny</div>
-            <nav>
-                <ul>
-                    <li><a title="Blog" href="@Url.Action("Posts", "Post")">Blog</a></li>
-                    <li><a title="Projekty" href="@Url.Action("Posts", "Post", new { tag = "projekty" })">Projekty</a></li>
-                    <li><a title="O mnie" href="@Url.Action("Post", "Post", new { id = "o-mnie" })" rel = "author">O mnie</a></li>
-                    <li><a title="RSS" href="@Url.Action("RSS", "Post", new { tag = ViewBag.Tag })">RSS</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="mainlayout">
+        <header>
+            <div class="titleImg">
+                <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
+            </div>
+            <div class="titleContent">
+                <div class="title"><a title="Mateusz Świetlicki Blog" href="@Url.Action("Posts", "Post")">Mateusz Świetlicki</a></div>
+                <div class="subtitle">Blog programistyczny</div>
+                <nav>
+                    <ul>
+                        <li><a title="Blog" href="@Url.Action("Posts", "Post")">Blog</a></li>
+                        <li><a title="Projekty" href="@Url.Action("Posts", "Post", new { tag = "projekty" })">Projekty</a></li>
+                        <li><a title="O mnie" href="@Url.Action("Post", "Post", new { id = "o-mnie" })" rel = "author">O mnie</a></li>
+                        <li><a title="RSS" href="@Url.Action("RSS", "Post", new { tag = ViewBag.Tag })">RSS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-    <div id="emptyTopBox"></div>
-    <section id="content">
-        @RenderBody()
-    </section>
-    <div id="fb-root"></div>
-    <footer>
-        <div>Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a></div>
-    </footer>
-    @*<div id="emptyBottomBox"></div>*@
-    
+        <div id="emptyTopBox"></div>
+        <section id="content">
+            @RenderBody()
+        </section>
+        <footer>
+            <div>Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a></div>
+        </footer>
+    </div>
 
     @RenderSection("scripts", required: false)
 </body>

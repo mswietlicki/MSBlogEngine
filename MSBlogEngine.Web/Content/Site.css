@@ -13,10 +13,14 @@ body {
     text-align: center;
 }
 
-#content {
+#mainlayout {
     width: 1000px;
     margin: 0px auto;
     text-align: left;
+}
+
+#content {
+    margin: 0px;
 }
 
 #emptyTopBox {
@@ -31,8 +35,9 @@ header {
     position: fixed;
     top: 0px;
     min-width: 300px;
-    right: 20px;
-    left: 20px;
+    width: 1000px;
+    /*right: 20px;
+    left: 20px;*/
     background-color: rgb(201, 81, 0);
     background-image: url('/Content/Images/dark-orange.png');
     background-repeat: repeat;
@@ -59,20 +64,25 @@ footer {
 }
 
 @media screen and (max-width: 1040px) {
-    #content {
+    #mainlayout {
         width: auto;
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    header {
+        width: auto;
+        right: 20px;
+        left: 20px;
+    }
+
     footer {
         width: auto;
-        margin-left: 20px;
-        margin-right: 20px;
     }
 }
 
 @media screen and (max-width: 640px) {
-    #content {
+    #mainlayout {
         margin-left: 1px;
         margin-right: 1px;
     }
