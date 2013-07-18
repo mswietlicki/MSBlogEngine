@@ -124,6 +124,10 @@ footer {
     margin-left: 60px;
 }
 
+.comments a {
+    text-decoration: none;
+}
+
 .title {
     float: left;
     margin-left: 10px;
