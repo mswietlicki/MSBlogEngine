@@ -158,7 +158,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\analytics.js" />
-    <Content Include="Scripts\facebookInit.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
