@@ -336,3 +336,9 @@ article .tags {
 figure div {
     background-color: transparent !important;
 }
+
+#translate {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}

@@ -19,9 +19,18 @@
     <link rel="author" href="//plus.google.com/114424783196736458698/">
 
     <script src="~/Scripts/analytics.js" type="text/javascript"></script>
+    <meta name="google-translate-customization" content="1eb8bf96d2f148b-04c5265d7cc9d565-g4020d48f6f57bcff-16"></meta>
 </head>
 <body>
-
+    <div id="translate">
+        <div id="google_translate_element"></div>
+@*        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'pl', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT, gaTrack: true, gaId: 'UA-41087495-1' }, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>*@
+    </div>
     <div id="mainlayout">
         <header>
             <div class="titleImg">
@@ -42,6 +51,7 @@
         </header>
 
         <div id="emptyTopBox"></div>
+
         <section id="content">
             @RenderBody()
         </section>
