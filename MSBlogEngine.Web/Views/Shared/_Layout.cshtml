@@ -45,11 +45,12 @@
     <section id="content">
         @RenderBody()
     </section>
+    <div id="fb-root"></div>
     <footer>
         <div>Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a></div>
     </footer>
-    <div id="emptyBottomBox"></div>
-    <div id="fb-root"></div>
+    @*<div id="emptyBottomBox"></div>*@
+    
 
     @RenderSection("scripts", required: false)
 </body>

@@ -10,11 +10,13 @@ body {
     font-size: .85em;
     font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
     padding: 0;
+    text-align: center;
 }
 
 #content {
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 1000px;
+    margin: 0px auto;
+    text-align: left;
 }
 
 #emptyTopBox {
@@ -42,10 +44,10 @@ header {
 }
 
 footer {
-    position: fixed;
-    bottom: 0px;
-    right: 20px;
-    left: 20px;
+    position: relative;
+    width: 1000px;
+    margin: 0px auto;
+    text-align: left;
     height: 40px;
     line-height: 40px;
     display: block;
@@ -54,8 +56,19 @@ footer {
     padding-left: 10px;
     padding-right: 10px;
     z-index: 9999;
-    /*background-image: url('/Content/Images/grey.png');
-    background-repeat: repeat;*/
+}
+
+@media screen and (max-width: 1040px) {
+    #content {
+        width: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    footer {
+        width: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -76,11 +89,11 @@ footer {
 }
 
 @media screen and (max-height: 480px) {
-    footer {
+    /*footer {
         position: relative !important;
         left: 0px;
         right: 0px;
-    }
+    }*/
 
     #emptyBottomBox {
         display: none;
@@ -308,8 +321,4 @@ article .tags {
 
 figure div {
     background-color: transparent !important;
-}
-
-.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
-    display: none !important;
 }
