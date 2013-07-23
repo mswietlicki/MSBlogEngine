@@ -1,4 +1,5 @@
-﻿@model MSBlogEngine.Web.Models.PostModel
+﻿@using MSBlogEngine.Web.Properties
+@model MSBlogEngine.Web.Models.PostModel
 @{
     var url = Url.Action("Post", "Post", new { id = Model.Post.Id }, Request.Url.Scheme);
 }
@@ -30,6 +31,9 @@
             {
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
+                    var disqus_config = function () {
+                        this.language = "@Resources.Html_Lang";
+                    };
                     
                     var disqus_shortname = 'mateuszswietlicki'; 
 

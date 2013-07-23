@@ -1,49 +1,42 @@
-﻿@{
+﻿@using System.Globalization
+@using MSBlogEngine.Web.Properties
+@{
     var keyHashset = ViewBag.Keywords as HashSet<string> ?? new HashSet<string>();
     keyHashset.UnionWith(new[] { "Mateusz Świetlicki", "Świetlicki" });
     var keywords = keyHashset.Aggregate("", (acc, t) => acc + ", " + t).Substring(2);
+
 }
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="@Resources.Html_Lang">
 <head>
     <meta charset="utf-8" />
     <title>Mateusz Świetlicki: @ViewBag.Title</title>
-    <meta name="description" content="Mateusz Świetlicki Blog programisty">
+    <meta name="description" content="@Resources.Views_Shared_Layout_Description">
     <meta name="author" content="Mateusz Świetlicki">
     <link href="http://www.microsoft.com/visualstudio/_base_v2/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="@keywords">
     <link href="~/Content/Site.css" media="all" rel="stylesheet" type="text/css" />
-    <link type="application/rss+xml" rel="alternate" title="Mateusz Świetlicki Blog programisty" href="/rss">
+    <link type="application/rss+xml" rel="alternate" title="@Resources.Views_Shared_Layout_Description" href="/rss">
     <link rel="author" href="//plus.google.com/114424783196736458698/">
 
     <script src="~/Scripts/analytics.js" type="text/javascript"></script>
-    <meta name="google-translate-customization" content="1eb8bf96d2f148b-04c5265d7cc9d565-g4020d48f6f57bcff-16"></meta>
 </head>
 <body>
-    <div id="translate">
-        <div id="google_translate_element"></div>
-@*        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({ pageLanguage: 'pl', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT, gaTrack: true, gaId: 'UA-41087495-1' }, 'google_translate_element');
-            }
-        </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>*@
-    </div>
     <div id="mainlayout">
         <header>
             <div class="titleImg">
                 <img alt="Mateusz Świetlicki" src="~/Content/Images/ja.jpg" />
             </div>
             <div class="titleContent">
-                <div class="title"><a title="Mateusz Świetlicki Blog" href="@Url.Action("Posts", "Post")">Mateusz Świetlicki</a></div>
-                <div class="subtitle">Blog programistyczny</div>
+                <div class="title"><a title="@Resources.Views_Shared_Layout_Description" href="@Url.Action("Posts", "Post")">@Resources.Title</a></div>
+                <div class="subtitle">@Resources.SubTitle</div>
                 <nav>
                     <ul>
-                        <li><a title="Blog" href="@Url.Action("Posts", "Post")">Blog</a></li>
-                        <li><a title="Projekty" href="@Url.Action("Posts", "Post", new { tag = "projekty" })">Projekty</a></li>
-                        <li><a title="O mnie" href="@Url.Action("Post", "Post", new { id = "o-mnie" })" rel = "author">O mnie</a></li>
+                        <li><a title="@Resources.Links_Blog_Title" href="@Url.Action("Posts", "Post")">@Resources.Links_Blog_Title</a></li>
+                        <li><a title="@Resources.Links_Projects_Title" href="@Url.Action("Posts", "Post", new { tag = "projekty" })">@Resources.Links_Projects_Title</a></li>
+                        <li><a title="@Resources.Links_Author_Title" href="@Url.Action("Post", "Post", new { id = "o-mnie" })" rel="author">@Resources.Links_Author_Title</a></li>
                         <li><a title="RSS" href="@Url.Action("RSS", "Post", new { tag = ViewBag.Tag })">RSS</a></li>
                     </ul>
                 </nav>
@@ -56,7 +49,7 @@
             @RenderBody()
         </section>
         <footer>
-            <div style="float: left">Napisz do mnie: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a></div>
+            <div style="float: left">@Resources.Write_To_Me: <a href="mailto:blog@swietlicki.net">blog@swietlicki.net</a></div>
             <div style="float: right">© Copyright 2013, Mateusz Świetlicki.</div>
         </footer>
     </div>
