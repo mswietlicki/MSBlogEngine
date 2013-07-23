@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>http://mateusz.swietlicki.net/</loc>
+  <changefreq>daily</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=projekty</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/o-mnie</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Blog</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=PL</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=EN</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/i-am-changing-blog-language</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Bug</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=XAML</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Error</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/radiobutton-binding-bug</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=NDC</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Conference</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=NDCOslo</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/ndc-2013---moje-oceny</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=C%23</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Projekty</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Git</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Markdown</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/nowy-blog</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=.NET</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Grafika</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/nowe-logo-net-framework</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Doctor%20Who</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Crack%20in%20the%20universe</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/crack-on-my-bedroom-wall</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=ASP.NET</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=EntityFramework</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=SQL</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/na-co-zwracac-uwage-podczas-publikowania-aplikacji-asp-net-na-serwerze-klienta</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Agile</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=JS</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/ndc-2012---moje-oceny</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=PowerShell</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Nuget</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Chocolatey</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Windows</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/chocolatey-org---nuget-dla-windows</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/sql-database-copy---cannot-find-the-principal</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Triki</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/dynamiczne-dodawanie-warunkow-do-iqueryable</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=IIS</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Windows%20Server</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/jak-uruchomic-asp-net-4-po-windows-2003-iis6</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=WCF</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/windows-serwer-2008-r2-portmapping</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/ews-i-http-status-401-unauthorized</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=ClickOnce</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=IT</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/problem-z-reinstalacja-aplikacji-clickonce</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Exchange</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/problemy-z-instalacja-exchange-2010</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/create-a-dbml-descriptor-file-for-the-database</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=SharePoint</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/sharepoint-2010-i-powershell-uzyteczne-skrypty</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/problemy-po-instalacji-sharepoint-2010</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/hardkodowe-poprawki-w-sharepoint-2010</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Hardware</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=LifeCam</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/zmiana-akcji-sprzetowego-guzika-kamery-lifecam</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/exchange-2010---the-winrm-client-received-an-http-server-error-status-(500)</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/problem-czasu-przy-wshttpbinding</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=Certyfikat</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/wspomnienia-z-70-536</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/Post/jak-zmienic-tlo-ekranu-logowania</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mateusz.swietlicki.net/?tag=O%20mnie</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+</urlset>

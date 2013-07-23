@@ -4,6 +4,10 @@
 
 @{
     ViewBag.Title = Resources.SubTitle;
+    if (ViewBag.Tag != "blog")
+    {
+        ViewBag.Title += " - " + ViewBag.Tag;
+    }
 }
 
 <div id="posts">
