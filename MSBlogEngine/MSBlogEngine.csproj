@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MarkdownSharp">
-      <HintPath>..\DLL\MarkdownSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -94,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MarkdownSharp\MarkdownSharp.csproj">
+      <Project>{37619116-cce8-465a-8b1f-081ca53364bb}</Project>
+      <Name>MarkdownSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSBlogEngine.Common\MSBlogEngine.Common.csproj">
       <Project>{FDAD9F75-5B08-4AAE-8AD2-F7504BA57925}</Project>
       <Name>MSBlogEngine.Common</Name>
