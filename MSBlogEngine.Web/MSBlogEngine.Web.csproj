@@ -221,6 +221,7 @@
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\PublishProfiles\azureSrv1.pubxml" />
     <None Include="Properties\PublishProfiles\directc.pubxml" />
     <None Include="Properties\PublishProfiles\zip.pubxml" />
   </ItemGroup>

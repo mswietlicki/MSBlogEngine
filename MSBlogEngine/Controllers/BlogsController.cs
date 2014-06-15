@@ -32,6 +32,7 @@ namespace MSBlogEngine.Controllers
 
         private IEnumerable<BlogPost> GetPosts()
         {
+
             return _blogProvider.GetPosts().Where(post => !post.Hidden).OrderByDescending(post => post.CreateDate);
         }
     }
