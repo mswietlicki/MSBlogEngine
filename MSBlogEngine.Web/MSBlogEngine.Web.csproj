@@ -147,14 +147,6 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Content Include="..\MSBlogEngine.Git.Service\bin\Debug\MSBlogEngine.Git.dll">
-      <Link>Service\MSBlogEngine.Git.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\MSBlogEngine.Git.Service\bin\Debug\MSBlogEngine.Git.Service.exe">
-      <Link>Service\MSBlogEngine.Git.Service.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Images\dark-grey.png" />
     <Content Include="Content\Images\dark-orange.png" />
     <Content Include="Content\Images\grey.png" />
@@ -207,15 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="..\MSBlogEngine.Git.Service\bin\Debug\MSBlogEngine.Git.Service.exe.config">
-      <Link>Service\MSBlogEngine.Git.Service.exe.config</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
