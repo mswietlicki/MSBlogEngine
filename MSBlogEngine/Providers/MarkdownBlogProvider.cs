@@ -39,9 +39,8 @@ namespace MSBlogEngine.Providers
                     return post;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //LOG
                 return null;
             }
         }
