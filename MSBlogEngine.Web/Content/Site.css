@@ -252,7 +252,7 @@ article {
         max-width: 400px;
     }
 
-        article img:hover {
+        article img:active {
             max-width: 1000px;
         }
 
@@ -261,7 +261,7 @@ article {
         max-width: 300px;
     }
 
-        article img:hover {
+        article img:active {
             max-width: 540px;
         }
 }
@@ -271,7 +271,7 @@ article {
         max-width: 300px;
     }
 
-        article img:hover {
+        article img:active {
             max-width: 300px;
         }
 }
